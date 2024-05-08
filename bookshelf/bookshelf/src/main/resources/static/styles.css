@@ -1,0 +1,36 @@
+
+
+
+
+
+
+input, h1, form{
+    display: inline;
+}
+.shelf{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+justify-content: center;
+    gap: 50px;
+}
+
+.book-cover{
+    border: 1px solid  black;
+    border-radius: 7%;
+padding: 20px;
+    background-color: grey;
+    min-width: 140px;
+    max-width: 140px;
+    text-align: center;
+    height:200px;
+
+}
+
+hr{
+    border: 10px solid black;
+    border-radius: 10px;
+}
+.shelf{
+    margin-top: 20px;
+}
