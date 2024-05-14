@@ -8,10 +8,10 @@
 </head>
 <body>
 <div class="top-bar">
-<h1>BooksS</h1>
+<h1>My Books</h1>
 
 <form action="/getMappingResults" method="get">
-    <input type="text" name="name" placeholder="Search">
+    <input type="text" name="name" placeholder="Search" class="searchbar">
     <input type="submit" value="Go">
 </form>
 {{#errorMessage}}
@@ -24,12 +24,14 @@
 <div class="shelf">
 
     {{#books}}
+        <div class="totalBookView">
         <div class="book-cover">
             <h3> {{title}}</h3>
             <p> {{author}}</p>
-            <p> {{pageCurrent}} / {{pagesTotal}}</p>
-        </div>
 
+        </div>
+        <p class="pageCount"> {{pageCurrent}} / {{pagesTotal}}</p>
+        </div>
     {{/books}}
 
 </div>
