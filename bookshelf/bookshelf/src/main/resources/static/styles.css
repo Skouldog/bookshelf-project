@@ -2,11 +2,11 @@
 
 
 
-
-
-input, h1, form{
-    display: inline;
+.top-bar h1, .top-bar form, .error{
+    display:inline;
 }
+
+
 .shelf{
     display: flex;
     flex-direction: row;
@@ -30,7 +30,26 @@ padding: 20px;
 hr{
     border: 10px solid black;
     border-radius: 10px;
+
+    position: relative;
+
+
+}
+.over{
+    justify-content: center;
 }
 .shelf{
     margin-top: 20px;
+    width: 50%;
+
+}
+
+nav{
+    display: flex;
+
+    flex-direction: row;
+
+    justify-content: center;
+
+    gap: 50px;
 }

@@ -1,32 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>Bookshelf</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
+<div class="top-bar">
+<h1>BooksS</h1>
 
-    <h1>BooksS</h1></div>
-
-    <form>
-        <input type="text" name="name" placeholder="Search">
-        <input type="submit">
-    </form>
-
+<form action="/getMappingResults" method="get">
+    <input type="text" name="name" placeholder="Search">
+    <input type="submit" value="Go">
+</form>
+{{#errorMessage}}
+    <div class="error" >
+        {{errorMessage}}
+    </div>
+{{/errorMessage}}
+</div>
+<div class="over">
 <div class="shelf">
 
-{{#books}}
-<div class="book-cover">
-    <h3> {{title}}</h3>
-    <p> {{author}}</p>
-    <p> {{pageCurrent}} / {{pagesTotal}}</p>
+    {{#books}}
+        <div class="book-cover">
+            <h3> {{title}}</h3>
+            <p> {{author}}</p>
+            <p> {{pageCurrent}} / {{pagesTotal}}</p>
+        </div>
+
+    {{/books}}
+
 </div>
-
-{{/books}}
-
 </div>
 <hr>
+
+
+<nav>
+    <form method="get" action="/dashboard">
+        <button class="go-dash-button" type="submit">Bookshelf</button>
+    </form>
+    <form method="get" action="/impressum">
+        <button class="go-quotes-button" type="submit">Quotes</button>
+    </form>
+    <form method="get" action="/impressum">
+        <button class="go-impressum-button" type="submit">Impressum</button>
+    </form>
+</nav>
 </body>
 </html>
