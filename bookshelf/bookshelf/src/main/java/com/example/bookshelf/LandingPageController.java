@@ -5,10 +5,14 @@ import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
+import java.util.stream.Collectors;
 
 @Controller
 public class LandingPageController {
@@ -63,5 +67,13 @@ public class LandingPageController {
     public String quotes(Model model) {
 
         return "quotes";
+    }
+
+    @GetMapping("/autocomplete")
+    @ResponseBody
+    public List<String> autocomplete(@RequestParam String query) {
+        return allBooks.keySet().stream()
+                .filter(title -> title.toLowerCase().contains(query.toLowerCase()))
+                .collect(Collectors.toList());
     }
 }
