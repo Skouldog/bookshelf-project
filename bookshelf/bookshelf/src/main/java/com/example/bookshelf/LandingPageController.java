@@ -68,6 +68,12 @@ public class LandingPageController {
 
         return "quotes";
     }
+    @GetMapping("/chosenBook")
+    public String chosenBook(Model model) {
+
+        return "chosenBook";
+    }
+
 
     @GetMapping("/autocomplete") //Auto Suggestion
     @ResponseBody
