@@ -22,20 +22,6 @@ public class LandingPageController {
     HashMap<String, book> allBooks = new HashMap<>();
     HashMap<String, book> myBooks = new HashMap<>();
 
-    @PostConstruct //Intilaiseren der Liste (austauschen mit der Datenbank)
-    public void init() {
-        book Harry = new book("Harry Potter", "J.K Rowling", 399, 0);
-        allBooks.put("Harry Potter", Harry);
-        book Lord = new book("Lord of the Rings", "KeinPlan", 800, 0);
-        allBooks.put("Lord of the Rings", Lord);
-        book Hitchhiker = new book("Hitchhikers Guide to the Galaxy", "Douglas Adam", 200, 199);
-        allBooks.put("Hitchhiker Guide", Hitchhiker);
-        book Hunger = new book("The Hunger Games", "Kein Plan", 300, 14);
-        allBooks.put("The Hunger Games", Hunger);
-        book Thirst = new book("The Hunger Games", "Kein Plan", 300, 14);
-        allBooks.put("Thirt", Thirst);
-
-    }
 
     @GetMapping(RESULTS_PATH) //Search Querery
     public String getMappingResults(RedirectAttributes redirectAttributes, String name) {
@@ -53,6 +39,7 @@ public class LandingPageController {
     @GetMapping("/dashboard")
     public String dashboard(Model model) {
         model.addAttribute("books", myBooks.values());
+
         return "dashboard";
     }
 
