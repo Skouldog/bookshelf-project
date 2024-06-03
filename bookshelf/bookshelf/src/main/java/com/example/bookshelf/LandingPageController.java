@@ -2,6 +2,7 @@ package com.example.bookshelf;
 
 
 import jakarta.annotation.PostConstruct;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,6 +19,10 @@ import java.util.stream.Collectors;
 public class LandingPageController {
 
     private static final String RESULTS_PATH = "/getMappingResults";
+
+    @Autowired
+     private BookRepository bookRepository;
+
 
     HashMap<String, book> allBooks = new HashMap<>();
     HashMap<String, book> myBooks = new HashMap<>();
@@ -39,7 +44,7 @@ public class LandingPageController {
     @GetMapping("/dashboard")
     public String dashboard(Model model) {
         model.addAttribute("books", myBooks.values());
-
+        model.addAttribute("books", bookRepository.findAll());
         return "dashboard";
     }
 

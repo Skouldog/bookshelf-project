@@ -2,15 +2,23 @@ package com.example.bookshelf;
 
 
 import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
+
 
 @Table("BOOKS")
 public class book {
     @Id
+    @Column("ID")
     private Long id;
+    @Column("TITLE")
     private String title;
+    @Column("AUTHOR")
     private String author;
+
+    @Column("PAGES_TOTAL")
     private int pagesTotal;
+    @Column("PAGE_CURRENT")
     private int pageCurrent;
 
     public book(String title, String author, int pagesTotal, int pageCurrent) {
