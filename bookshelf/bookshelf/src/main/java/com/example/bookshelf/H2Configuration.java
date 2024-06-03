@@ -12,7 +12,7 @@ public class H2Configuration {
 
         @Bean(initMethod="start", destroyMethod="stop")
         public Server inMemoryH2DatabaseServer()throws SQLException {
-            return Server.createTcpServer("-tcp","-tcpAllowOthers","-tcpPort","8080");
+            return Server.createTcpServer("-tcp","-tcpAllowOthers","-tcpPort","9090");
         }
 
 
