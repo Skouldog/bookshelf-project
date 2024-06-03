@@ -1,6 +1,12 @@
 package com.example.bookshelf;
 
+
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Table;
+
+@Table("BOOKS")
 public class book {
+    @Id
     private Long id;
     private String title;
     private String author;
