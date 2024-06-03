@@ -22,7 +22,7 @@ public class LandingPageController {
     HashMap<String, book> allBooks = new HashMap<>();
     HashMap<String, book> myBooks = new HashMap<>();
 
-    @PostConstruct
+    @PostConstruct //Intilaiseren der Liste (austauschen mit der Datenbank)
     public void init() {
         book Harry = new book("Harry Potter", "J.K Rowling", 399, 0);
         allBooks.put("Harry Potter", Harry);
@@ -37,7 +37,7 @@ public class LandingPageController {
 
     }
 
-    @GetMapping(RESULTS_PATH)
+    @GetMapping(RESULTS_PATH) //Search Querery
     public String getMappingResults(RedirectAttributes redirectAttributes, String name) {
        if(allBooks.containsKey(name)) {
            myBooks.put(name, allBooks.get(name));
@@ -69,7 +69,7 @@ public class LandingPageController {
         return "quotes";
     }
 
-    @GetMapping("/autocomplete")
+    @GetMapping("/autocomplete") //Auto Suggestion
     @ResponseBody
     public List<String> autocomplete(@RequestParam String query) {
         return allBooks.keySet().stream()
