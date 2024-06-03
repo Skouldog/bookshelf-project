@@ -64,4 +64,10 @@ public class LandingPageController {
 
         return "quotes";
     }
+
+    @GetMapping("/chosenBook")
+    public String chosenBook(Model model) {
+
+        return "chosenBook";
+    }
 }

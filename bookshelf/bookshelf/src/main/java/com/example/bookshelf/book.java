@@ -1,6 +1,7 @@
 package com.example.bookshelf;
 
 public class book {
+    private Long id;
     private String title;
     private String author;
     private int pagesTotal;
@@ -11,6 +12,9 @@ public class book {
         this.author = author;
         this.pagesTotal = pagesTotal;
         this.pageCurrent = pageCurrent;
+    }
+
+    public book() {
     }
 
     public String getTitle() {
