@@ -40,7 +40,7 @@ public class LandingPageController {
 
 
     @GetMapping("")
-    public String redirectp(Model model) {
+    public String redirect(Model model){
         return "redirect:/dashboard";
     }
 
