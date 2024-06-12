@@ -10,9 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @Controller
@@ -21,40 +19,42 @@ public class LandingPageController {
     private static final String RESULTS_PATH = "/getMappingResults";
 
     @Autowired
-     private BookRepository bookRepository;
+    private IAllBookRepository allBookRepository;
+
+    List<AllBooks> personalLibrary = new ArrayList<>();
 
 
-    HashMap<String, book> allBooks = new HashMap<>();
-    HashMap<String, book> myBooks = new HashMap<>();
 
-
-    @GetMapping(RESULTS_PATH) //Search Querery
+    @GetMapping(RESULTS_PATH) //Search Querery um Bücher zu finden
     public String getMappingResults(RedirectAttributes redirectAttributes, String name) {
-       if(allBooks.containsKey(name)) {
-           myBooks.put(name, allBooks.get(name));
-       }else {
-           redirectAttributes.addFlashAttribute("errorMessage", "Book not found");
-       }
-    return "redirect:/dashboard";
-    }
-
-
-
-    @GetMapping("/")
-    public String redirect(Model model){
+        AllBooks searchedBook = allBookRepository.findByTitle(name);
+        if (personalLibrary.contains(searchedBook)) {
+            redirectAttributes.addFlashAttribute("errorMessage", "Book is already in Library");
+        } else if (searchedBook != null && searchedBook.getTitle().equals(name)) {
+            personalLibrary.add(allBookRepository.findByTitle(name));
+            redirectAttributes.addFlashAttribute("errorMessage", "Book has been added");
+        } else {
+            redirectAttributes.addFlashAttribute("errorMessage", "Book not found");
+        }
         return "redirect:/dashboard";
     }
 
 
-    @GetMapping("/dashboard")
+    @GetMapping("/") //Redirect von leerer Webadresse zum Dashboard
+    public String redirect(Model model) {
+        return "redirect:/dashboard";
+    }
+
+
+    @GetMapping("/dashboard")//Dashboard anzeigen von den eigenen Büchern
     public String dashboard(Model model) {
-        model.addAttribute("books", myBooks.values());
-        model.addAttribute("books", bookRepository.findAll());
+
+        model.addAttribute("books", personalLibrary);
         return "dashboard";
     }
 
 
-    @GetMapping("/impressum")
+    @GetMapping("/impressum")// Impressum
     public String impressum(Model model) {
 
         return "impressum";
@@ -65,18 +65,21 @@ public class LandingPageController {
 
         return "quotes";
     }
+
     @GetMapping("/chosenBook")
     public String chosenBook(Model model) {
 
         return "chosenBook";
     }
 
-
-    @GetMapping("/autocomplete") //Auto Suggestion
+/*
+    @GetMapping("/autocomplete") //Auto Suggestion mithilfe von JavaScript
     @ResponseBody
     public List<String> autocomplete(@RequestParam String query) {
         return allBooks.keySet().stream()
                 .filter(title -> title.toLowerCase().contains(query.toLowerCase()))
                 .collect(Collectors.toList());
     }
+
+ */
 }
