@@ -72,14 +72,14 @@ public class LandingPageController {
         return "chosenBook";
     }
 
-/*
-    @GetMapping("/autocomplete") //Auto Suggestion mithilfe von JavaScript
+
+    @GetMapping("/autocomplete")  // Autocomplete für die Suche
     @ResponseBody
-    public List<String> autocomplete(@RequestParam String query) {
-        return allBooks.keySet().stream()
-                .filter(title -> title.toLowerCase().contains(query.toLowerCase()))
+    public List<String> autocomplete(@RequestParam("query") String query) {
+        List<AllBooks> books = allBookRepository.findByTitleContainingIgnoreCase(query);
+        return books.stream()
+                .map(AllBooks::getTitle)
                 .collect(Collectors.toList());
     }
 
- */
 }

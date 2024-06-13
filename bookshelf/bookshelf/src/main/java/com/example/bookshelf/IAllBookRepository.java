@@ -10,8 +10,7 @@ public interface IAllBookRepository extends ListCrudRepository<AllBooks, Long> {
 
     @Query("SELECT * FROM ALLBOOKS WHERE TITLE = :title")
     AllBooks findByTitle(String title);
-
-
+    List<AllBooks> findByTitleContainingIgnoreCase(String title);
 
 
 }
