@@ -13,8 +13,5 @@ public interface IAllBookRepository extends ListCrudRepository<AllBooks, Long> {
     AllBooks findByTitle(String title);
     List<AllBooks> findByTitleContainingIgnoreCase(String title);
 
-    @Query("SELECT * FROM ALLBOOKS WHERE ID = :id")
-    @Override
-    Optional<AllBooks> findById(Long id);
 
 }
