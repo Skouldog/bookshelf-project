@@ -1,24 +1,32 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>book</title>
-    <style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{{book.title}}</title>
 
-    </style>
 </head>
 <body>
 
-<h1>Welcome</h1>
+<div class="totalBookView">
+    <a class="book-cover" >
+        <h3> {{book.title}}</h3>
+        <p> {{book.author}}</p>
+    </a>
+    <p class="pageCount"> {{book.page_current}} / {{book.pages_total}}</p>
+</div>
 
-{{#books}}
-    <div>
-        <p>
-            {{title}}
-        </p>
-    </div>
-{{/books}}
+<nav>
+    <form method="get" action="/dashboard">
+        <button class="go-dash-button" type="submit">Bookshelf</button>
+    </form>
+    <form method="get" action="/quotes">
+        <button class="go-quotes-button" type="submit">Quotes</button>
+    </form>
+    <form method="get" action="/impressum">
+        <button class="go-impressum-button" type="submit">Impressum</button>
+    </form>
+</nav>
 
 
 </body>

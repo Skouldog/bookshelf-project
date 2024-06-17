@@ -62,13 +62,39 @@ public class LandingPageController {
 
 
 
+    public static class BookView{
+        private String title;
+        private String author;
+        private int pages_total;
+        private int page_current;
+
+        public String getTitle() { return title; }
+        public String getAuthor() { return author; }
+        public int getPages_total() { return pages_total; }
+        public int getPage_current() { return page_current; }
+        public void setTitle(String title) { this.title = title;}
+        public void setAuthor(String author) { this.author = author;}
+        public void setPages_total(int pages_total) { this.pages_total = pages_total;}
+        public void setPage_current(int page_current) { this.page_current = page_current;}
 
 
-@GetMapping("/chosenBook")
-public String chosenBook(Model model) {
+    }
 
-    return "chosenBook";
-}
+
+    @GetMapping("/chosenBook/{title}")
+    public String get (@PathVariable String title, Model model) {
+        AllBooks searchedBook = allBookRepository.findByTitle(title);
+
+        BookView bookView = new BookView();
+        bookView.setTitle(searchedBook.getTitle());
+        bookView.setAuthor(searchedBook.getAuthor());
+        bookView.setPages_total(searchedBook.getPagesTotal());
+        bookView.setPage_current(searchedBook.getPageCurrent());
+
+
+        model.addAttribute("book", bookView);
+        return "chosenBook";
+    }
 
 
 /*public String getHTML(){
