@@ -1,83 +1,99 @@
-
+/*Versuche die Seite anzupassen, damit man nicht scrollen kann/muss*/
 body{
     height: 90%;
     padding: 5% 10% 0% 10%;
 }
 
-.totalBookView{
 
-    display: flex;
-    flex-direction: column;
-
-}
-.top-bar h1, .top-bar form, .error{
-    display:inline;
-}
-
+/*Font ändern von Website*/
 h1, p , h3 {
     font-family: Helvetica, sans-serif;
 }
 
+
+
+/*Suchleiste und Überschrift, alles auf eine Linie bringen*/
+.top-bar h1, .top-bar form, .error{
+    display:inline;
+}
+
+
+/*Titelschrift*/
 h1{
     font-size:4em;
     vertical-align: middle;
     margin-left:0%;
     margin-right:0%;
 }
-.pageCount{
 
-    font-size:.8em;
-    margin-left: 7px;
-  margin-top: 5px;
-}
 
+/*Suchleiste*/
 .searchbar {
-
-    border: none;
-
-
-    background-color: #CCcccc;
-    border-radius: 15px;
-    height: 30px;
-    width: 340px;
+    /*Placement*/
     padding-left: 20px;
     vertical-align: middle;
     margin-top: 15px;
+
+    /*Style*/
+    border: none;
+    background-color: #CCcccc;
+    border-radius: 15px;
+
+    /*Größe*/
+    height: 30px;
+    width: 340px;
+
 }
 .searchbar::placeholder {
     color: white;
     border: none;
 }
 
-.shelf{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-justify-content: center;
-    gap: 50px;
-}
 
+
+/* Bookcover, die Boxen die Info enthält*/
 .book-cover{
+    /* Boxstyle*/
     border:none;
     border-radius: 20px;
-padding: 20px;
+    padding: 20px;
     background-color: #CCcccc;
+
+    /* Größe*/
     min-width: 140px;
     max-width: 140px;
-    text-align: center;
     height:200px;
+
+    /* Text*/
+    text-align: center;
     text-decoration-line: none;
     color: black;
 
 }
 
+/*Seitenzahl und Position*/
+.pageCount{
+    font-size:.8em;
+    margin-left: 7px;
+    margin-top: 5px;
+}
+
+
+/* Linie in der Mitte um Bücher zu trennen*/
 hr{
     border: 10px solid #CCcccc;;
     border-radius: 10px;
-width: 60%;
+    width: 60%;
     position: absolute;
     top: 50%;
 
+
+}
+
+/* Versuchen die Bücher zu zentrieren und gleichmäßig zu verteilen*/
+.totalBookView{
+    display: flex;
+    flex-direction: column;
 
 }
 .over{
@@ -86,11 +102,18 @@ width: 60%;
     height: 700px;
 }
 .shelf{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 50px;
     margin-top: 20px;
     width: 50%;
 
 }
 
+
+/* Navigations Leiste: Nebeneinander in der Mitte von Website*/
 nav{
     display: flex;
 
@@ -101,6 +124,8 @@ nav{
     gap: 50px;
 }
 
+
+/*Autocomplete Style und Pop up*/
 .autocomplete-suggestions {
     border: 1px solid #ccc;
     background: #fff;
