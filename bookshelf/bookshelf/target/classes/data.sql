@@ -1,9 +1,15 @@
+
+DROP TABLE IF EXISTS ALLBOOKS;
+DROP TABLE IF EXISTS QUOTES;
+DROP TABLE IF EXISTS IMAGES;
+
 CREATE TABLE IF NOT EXISTS ALLBOOKS (
                                      ID LONG AUTO_INCREMENT PRIMARY KEY,
                                      TITLE VARCHAR(255) NOT NULL,
                                      AUTHOR VARCHAR(255) NOT NULL,
                                      PAGES_TOTAL INT NOT NULL,
                                      PAGE_CURRENT INT
+
 );
 
 
@@ -26,3 +32,11 @@ CREATE TABLE IF NOT EXISTS QUOTES(
                                      FOREIGN KEY (ALLBOOKS_ID) REFERENCES ALLBOOKS (ID)
 
 );
+
+CREATE TABLE IF NOT EXISTS IMAGES(
+                                    ID LONG AUTO_INCREMENT PRIMARY KEY,
+                                    SRC VARCHAR(100) NOT NULL
+);
+
+INSERT INTO IMAGES (SRC) VALUES ('Harry Potter Book Covers.jpg'),
+                                ('Lord of the Rings.jpg');

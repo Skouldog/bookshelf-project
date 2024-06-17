@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>quotePage</title>
 </head>
 <style>
@@ -21,6 +21,7 @@
 
         height: 200px;
     }
+
     .title {
         display: flex;
         align-items: center;
@@ -28,11 +29,13 @@
         font-weight: bold;
         align-self: center;
     }
+
     .add-quote-bar {
         display: flex;
         align-items: center;
         align-self: center;
     }
+
     .add-quote-bar input {
         align-self: center;
         padding: 5px 20px;
@@ -63,6 +66,7 @@
         right: 440px;
         bottom: 100px;
     }
+
     .menu-bar button {
         padding: 10px;
         margin: 10px;
@@ -89,24 +93,29 @@
         font-weight: bold;
     }
 
-     .carousel {
-         position: relative;
-         width: 80%;
-         margin: auto;
-         overflow: hidden;
-     }
+
+    .carousel {
+        position: relative;
+        width: 80%;
+        margin: auto;
+        overflow: hidden;
+    }
+
     .carousel-item {
         display: none;
         text-align: center;
     }
+
     .carousel-item.active {
         display: block;
     }
+
     .carousel-controls {
         display: flex;
         justify-content: center;
         margin-top: 10px;
     }
+
     .carousel-button {
         background-color: #007bff;
         color: white;
@@ -116,62 +125,66 @@
         cursor: pointer;
         border-radius: 5px;
     }
+
     .carousel-button:hover {
         background-color: #0056b3;
     }
+
     .quote {
         font-style: italic;
         margin-bottom: 10px;
     }
+
     .book-title {
         font-weight: bold;
     }
 
 </style>
 <body>
-    <div class="header">
-        <div class="title">MyQuotes</div>
-        <div class="add-quote-bar">
-            <form id="quoteForm" action="/addquotes" method="post">
-                <input
-                        type="text"
-                        name="title"
-                        id="title"
-                        placeholder="book title"
-                />
-                <input
-                        type="text"
-                        name="quote"
-                        id="quote"
-                        placeholder="add new Quote"
-                />
-                <input class="add-button" type="submit" value="+" />
-            </form>
-        </div>
+<div class="header">
+    <div class="title">MyQuotes</div>
+    <div class="add-quote-bar">
+        <form id="quoteForm" action="/addquotes" method="post">
+            <input
+                    type="text"
+                    name="title"
+                    id="title"
+                    placeholder="book title"
+                    required
+            />
+            <input
+                    type="text"
+                    name="quote"
+                    id="quote"
+                    placeholder="add new Quote"
+                    required
+            />
+            <input class="add-button" type="submit" value="+"/>
+        </form>
     </div>
-
-
-
-
-    <div class="carousel">
-        {{#quote}}{{#books}}
-
-                <div class="carousel-item active">
-                        <p class="quote">{{quote}}</p>
-                        <p id="book-title" class="book-title"> {{title}}</p>
-                        <p class="book-author"> {{author}} </p>
-                        <p class="book-page"> {{pageCurrent}}/{{pagesTotal}} </p>
-                </div>
-
-
-            {{/books}}{{/quote}}
-
 </div>
 
-    <div class="carousel-controls">
-        <button class="carousel-button" id="prev">Previous</button>
-        <button class="carousel-button" id="next">Next</button>
-    </div>
+
+<div class="carousel ">
+    {{#books}}
+        <div id="{{book.title}}">
+            {{#quotesList}}
+                <div class="carousel-item active">
+                    <p class="quote">{{quote}}</p>
+                    <p id="book-title" class="book-title"> {{book.title}}</p>
+                    <p class="book-author"> {{book.author}} </p>
+                    <p class="book-page"> {{book.pageCurrent}}/{{book.pagesTotal}} </p>
+                </div>
+            {{/quotesList}}
+        </div>
+    {{/books}}
+</div>
+
+
+<div class="carousel-controls">
+    <button class="carousel-button" id="prev">Previous</button>
+    <button class="carousel-button" id="next">Next</button>
+</div>
 
 
 <nav class="menu-bar">
@@ -185,34 +198,34 @@
         <button class="go-impressum-button" type="submit">Impressum</button>
     </form>
 </nav>
-    <script>
-        document.addEventListener("DOMContentLoaded", function () {
-            let currentIndex = 0;
-            const items = document.querySelectorAll('.carousel-item');
-            const totalItems = items.length;
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        let currentIndex = 0;
+        const items = document.querySelectorAll('.carousel-item');
+        const totalItems = items.length;
 
-            function showItem(index) {
-                items.forEach((item, i) => {
-                    item.classList.toggle('active', i === index);
-                });
-            }
+        function showItem(index) {
+            items.forEach((item, i) => {
+                item.classList.toggle('active', i === index);
+            });
+        }
 
-            function nextItem() {
-                currentIndex = (currentIndex + 1) % totalItems;
-                showItem(currentIndex);
-            }
-
-            function prevItem() {
-                currentIndex = (currentIndex - 1 + totalItems) % totalItems;
-                showItem(currentIndex);
-            }
-
-            document.getElementById('next').addEventListener('click', nextItem);
-            document.getElementById('prev').addEventListener('click', prevItem);
-
-
+        function nextItem() {
+            currentIndex = (currentIndex + 1) % totalItems;
             showItem(currentIndex);
-        });
-    </script>
+        }
+
+        function prevItem() {
+            currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+            showItem(currentIndex);
+        }
+
+        document.getElementById('next').addEventListener('click', nextItem);
+        document.getElementById('prev').addEventListener('click', prevItem);
+
+
+        showItem(currentIndex);
+    });
+</script>
 </body>
 </html>

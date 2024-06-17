@@ -1,5 +1,6 @@
-package com.example.bookshelf;
+package com.example.bookshelf.repos;
 
+import com.example.bookshelf.Quotes;
 import org.springframework.data.jdbc.repository.query.Query;
 import org.springframework.data.repository.ListCrudRepository;
 import org.springframework.stereotype.Repository;
@@ -11,11 +12,9 @@ public interface IQuoteRepository extends ListCrudRepository<Quotes, Long> {
     @Query("SELECT * FROM QUOTES WHERE QUOTE = :quote")
     Quotes findByQuote(String quote);
 
-    @Query("""
-SELECT QUOTES.* FROM QUOTES
-JOIN ALLBOOKS on QUOTES.ALLBOOKS_ID = ALLBOOKS.ID
-WHERE lower(ALLBOOKS.TITLE)=lower(:title)
-""")
-    Quotes findByTitle(String title);
+
+
+    @Query("SELECT * FROM QUOTES WHERE ALLBOOKS_ID = :id")
+    List<Quotes> findAllQuotesByBookId(Long id);
 
 }
