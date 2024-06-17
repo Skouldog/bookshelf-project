@@ -36,6 +36,11 @@ public class AllBooks {
     public String getTitle() {
         return title;
     }
+
+    public Long getId() {
+        return id;
+    }
+
     public void setTitle(String title) {
         this.title = title;
 

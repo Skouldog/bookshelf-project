@@ -14,10 +14,22 @@ public class Quotes {
     @Column("QUOTE")
     private String quote;
 
-    public Quotes(String quote) {
+    @Column("ALLBOOKS_ID")
+    private Long bookId;
+
+
+
+
+    public Quotes(String quote, AllBooks book) {
         this.quote = quote;
+        this.bookId = book.getId();
     }
 
     public Quotes() {
+    }
+
+
+    public String getQuote() {
+        return quote;
     }
 }

@@ -3,44 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>chosenBook</title>
+    <title>book</title>
     <style>
-        .structure{
-            display: flex;
-            flex-direction: row;
-            justify-content: space-between;
-            align-items: center;
 
-        }
-        .book-cover {
-            border: none;
-            border-radius: 20px;
-            padding: 20px;
-            background-color: #CCcccc;
-            width: 420px;
-            height: 600px;
-        }
-        .bool-info{
-            border: none;
-            border-radius: 20px;
-            padding: 20px;
-            background-color: #CCcccc;
-            width: 600px;
-            height: 600px;
-        }
     </style>
 </head>
 <body>
 
-<div class="structure">
-    <div class="book-cover">
+<h1>Welcome</h1>
 
+{{#books}}
+    <div>
+        <p>
+            {{title}}
+        </p>
     </div>
-    <div class="bool-info">
-
-    </div>
-
-</div>
+{{/books}}
 
 
 </body>

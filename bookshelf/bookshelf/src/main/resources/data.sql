@@ -22,8 +22,7 @@ INSERT INTO ALLBOOKS (TITLE, AUTHOR, PAGES_TOTAL, PAGE_CURRENT) VALUES
 CREATE TABLE IF NOT EXISTS QUOTES(
                                      ID LONG AUTO_INCREMENT PRIMARY KEY,
                                      QUOTE VARCHAR(255) NOT NULL,
-                                     ALLBOOKS_ID LONG,
-                                     CONSTRAINT fk_quotes_books foreign key (ALLBOOKS_ID) references ALLBOOKS (ID)
-                                         on delete cascade
+                                     ALLBOOKS_ID LONG NOT NULL ,
+                                     FOREIGN KEY (ALLBOOKS_ID) REFERENCES ALLBOOKS (ID)
+
 );
-INSERT INTO QUOTES(QUOTE) VALUES ('I solemnly swear that i am to no good')
