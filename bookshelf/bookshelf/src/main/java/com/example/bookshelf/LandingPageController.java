@@ -94,12 +94,12 @@ public class LandingPageController {
         bookView.setPages_total(searchedBook.getPagesTotal());
         bookView.setPage_current(searchedBook.getPageCurrent());
 
-
+      //  model.addAttribute("TEST", searchedBook);
         model.addAttribute("book", bookView);
         return "chosenBook";
     }
 
-
+// Kann das gelöscht werden ? Wer braucht das ?
 /*public String getHTML(){
     try{
 
