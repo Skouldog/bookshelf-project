@@ -28,6 +28,7 @@ public class AllBooks {
 
 
 
+
     public AllBooks(String title, String author, int pagesTotal, int pageCurrent) {
         this.title = title;
         this.author = author;
