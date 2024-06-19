@@ -24,9 +24,6 @@ public class LandingPageController {
     Set<AllBooks> quotedBooks = new HashSet<AllBooks>(); //Bücher zu den es Quotes gibt
 
 
-
-
-
     @Autowired
     private IQuoteRepository quoteRepository; //Interface für alle Quotes
     List<Quotes> allMyQuotes = new ArrayList<>(); //Liste mit Quotes
@@ -152,10 +149,11 @@ public class LandingPageController {
 */
 
 for (AllBooks selectedBook : personalLibrary) {
-
+//      Hash Set              mit allen Qutoes von den Buch mit Titel XY
     var quotesOfSelectedBook=quoteRepository.findQuotesByBookTitle(selectedBook.getTitle());
-    if(quotesOfSelectedBook.size()>0){
-        quotedBooks.add(selectedBook);
+    if(quotesOfSelectedBook.size()>0){      //Wenn Set Quotes hat
+        quotedBooks.add(selectedBook);      // dann zur Liste hinzufügen
+        model.addAttribute("quotesOfSelectedBook", quotesOfSelectedBook);
         model.addAttribute("selectedBook", quotedBooks);
     }
 
@@ -176,9 +174,9 @@ for (AllBooks selectedBook : personalLibrary) {
         if (personalLibrary.contains(searchBook)) {
             Quotes newQuote = new Quotes(quote, searchBook);
             quoteRepository.save(newQuote);
-            allMyQuotes.add(quoteRepository.findByQuote(quote));
+            //allMyQuotes.add(quoteRepository.findByQuote(quote));
 
-            record BookWithQuotes(AllBooks book, List<Quotes> quotesList) {
+           /* record BookWithQuotes(AllBooks book, List<Quotes> quotesList) {
             }
 
             List<BookWithQuotes> booksWithQuotes = new ArrayList<>();
@@ -193,12 +191,12 @@ for (AllBooks selectedBook : personalLibrary) {
                                 )
                         )
                 );
-            }
+            }*/
 
 
-            model.addAttribute("books", booksWithQuotes);
+
         } else {
-            model.addAttribute("errorMessage", "Book not found");
+           // model.addAttribute("errorMessage", "Book not found");
         }
 
         return ("redirect:/quotes");
