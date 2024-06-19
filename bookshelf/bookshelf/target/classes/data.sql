@@ -33,10 +33,7 @@ CREATE TABLE IF NOT EXISTS QUOTES(
 
 );
 
-CREATE TABLE IF NOT EXISTS IMAGES(
-                                    ID LONG AUTO_INCREMENT PRIMARY KEY,
-                                    SRC VARCHAR(100) NOT NULL
-);
+INSERT INTO QUOTES (QUOTE,ALLBOOKS_ID) VALUES (
+                                               'I swear to do only mischief', 1
+                                              )
 
-INSERT INTO IMAGES (SRC) VALUES ('Harry Potter Book Covers.jpg'),
-                                ('Lord of the Rings.jpg');

@@ -151,15 +151,17 @@ public class LandingPageController {
 for (AllBooks selectedBook : personalLibrary) {
 
     var quotesOfSelectedBook=quoteRepository.findQuotesByBookTitle(selectedBook.getTitle());
-    if(quotesOfSelectedBook==null){
-        continue;
-    }else{
-
+    if(quotesOfSelectedBook.size()>0){
+        quotedBooks.add(selectedBook);
+        model.addAttribute("quotesOfSelectedBook", quotesOfSelectedBook);
+        model.addAttribute("selectedBook", quotedBooks);
     }
+
+
 
 }
        // model.addAttribute("books", booksWithQuotes);
-model.addAttribute("quotesOfSelectedBook", quotesOfSelectedBook);
+
         return "quotes";
     }
 
