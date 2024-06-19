@@ -99,6 +99,34 @@ public class LandingPageController {
         return "chosenBook";
     }
 
+// Kann das gelöscht werden ? Wer braucht das ?
+/*public String getHTML(){
+    try{
+
+        String filePath = "/Desktop/bookshelf-project2/bookshelf/bookshelf/src/main/resources/templates/quotes.mustache";
+        String htmlContent = new String(Files.readAllBytes(Paths.get(filePath)));
+
+        // Parse the HTML content with JSoup
+        Document doc = Jsoup.parse(htmlContent);
+
+        // Extract elements and create Java variables
+        Element titleElement = doc.getElementById("book-title");
+
+        assert titleElement != null;
+
+
+        return titleElement.text();
+
+    } catch (IOException e) {
+        e.printStackTrace();
+        return "Error reading HTML content";
+    }
+}*/
+
+
+
+
+
 
 
     @GetMapping("/autocomplete")  // Autocomplete für die Suche
@@ -130,6 +158,11 @@ public class LandingPageController {
 
     @GetMapping("/quotes")
     public String quotes(Model model) {
+//        allMyQuotes = quoteRepository.findAll();
+//        model.addAttribute("books", quotedBooks);
+//        model.addAttribute("quote", allMyQuotes);
+//
+//
 
         record BookWithQuotes(AllBooks book, List<Quotes> quotesList) {
         }
@@ -146,6 +179,7 @@ public class LandingPageController {
             );
         }
 
+        System.out.println(booksWithQuotes.toString());
 
         model.addAttribute("books", booksWithQuotes);
 
