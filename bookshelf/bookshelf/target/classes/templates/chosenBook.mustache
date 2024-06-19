@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{{book.title}}</title>
-    <link rel="stylesheet" href="stylesDashboard.css">
+
 </head>
 <body>
 
@@ -14,6 +14,22 @@
         <p> {{book.author}}</p>
     </a>
     <p class="pageCount"> {{book.page_current}} / {{book.pages_total}}</p>
+</div>
+
+<div>
+    <!--
+    {{#TEST}}
+    <div class="totalBookView">
+
+            <a class="book-cover" href="chosenBook/{{title}}">
+                <h3 id="book.title" > {{title}}</h3>
+                <p> {{author}}</p>
+
+            </a>
+            <p class="pageCount"> {{pageCurrent}} / {{pagesTotal}}</p>
+
+    {{/TEST}}
+-->
 </div>
 
 <nav>

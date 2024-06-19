@@ -18,8 +18,6 @@ public class Quotes {
     private Long bookId;
 
 
-
-
     public Quotes(String quote, AllBooks book) {
         this.quote = quote;
         this.bookId = book.getId();
@@ -32,4 +30,5 @@ public class Quotes {
     public String getQuote() {
         return quote;
     }
+
 }

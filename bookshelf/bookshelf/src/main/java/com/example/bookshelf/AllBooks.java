@@ -5,7 +5,9 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 
 @Table("ALLBOOKS")
@@ -23,15 +25,17 @@ public class AllBooks {
     @Column("PAGE_CURRENT")
     private int pageCurrent;
 
+
+
+
     public AllBooks(String title, String author, int pagesTotal, int pageCurrent) {
         this.title = title;
         this.author = author;
         this.pagesTotal = pagesTotal;
         this.pageCurrent = pageCurrent;
+
     }
 
-    public AllBooks() {
-    }
 
     public String getTitle() {
         return title;

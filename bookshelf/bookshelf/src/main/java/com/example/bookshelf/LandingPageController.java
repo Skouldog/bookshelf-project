@@ -1,6 +1,8 @@
 package com.example.bookshelf;
 
 
+import com.example.bookshelf.repos.IAllBookRepository;
+import com.example.bookshelf.repos.IQuoteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -17,13 +19,15 @@ public class LandingPageController {
     private static final String RESULTS_PATH = "/getMappingResults";
 
     @Autowired
-    private IAllBookRepository allBookRepository; // Interface für die Bücher
-    List<AllBooks> personalLibrary = new ArrayList<>();// DIe eigenen Bücher, Dashboard Bücher
-    List<AllBooks> quotedBooks = new ArrayList<>(); //Bücher zu den es Quotes gibt
+    private IAllBookRepository allBookRepository;
+    Set<AllBooks> personalLibrary = new HashSet<>();// DIe eigenen Bücher, Dashboard Bücher
+    Set<AllBooks> quotedBooks = new HashSet<AllBooks>(); //Bücher zu den es Quotes gibt
+
 
     @Autowired
     private IQuoteRepository quoteRepository; //Interface für alle Quotes
     List<Quotes> allMyQuotes = new ArrayList<>(); //Liste mit Quotes
+
 
     @GetMapping(RESULTS_PATH) //Search Querery um Bücher zu finden
     public String getMappingResults(RedirectAttributes redirectAttributes, String name) {
@@ -80,7 +84,6 @@ public class LandingPageController {
 
     }
 
-
     @GetMapping("/chosenBook/{title}")
     public String get (@PathVariable String title, Model model) {
         AllBooks searchedBook = allBookRepository.findByTitle(title);
@@ -91,12 +94,12 @@ public class LandingPageController {
         bookView.setPages_total(searchedBook.getPagesTotal());
         bookView.setPage_current(searchedBook.getPageCurrent());
 
-
+      //  model.addAttribute("TEST", searchedBook);
         model.addAttribute("book", bookView);
         return "chosenBook";
     }
 
-
+// Kann das gelöscht werden ? Wer braucht das ?
 /*public String getHTML(){
     try{
 
@@ -150,35 +153,78 @@ public class LandingPageController {
         AllBooks newBook = new AllBooks(title, author, pagesTotal, pagesCurrent);
         allBookRepository.save(newBook);
         personalLibrary.add(allBookRepository.findByTitle(title));
-        return("redirect:/dashboard");
+        return ("redirect:/dashboard");
     }
 
     @GetMapping("/quotes")
     public String quotes(Model model) {
-        allMyQuotes = quoteRepository.findAll();
-        model.addAttribute("books", quotedBooks);
-        model.addAttribute("quote", allMyQuotes);
+//        allMyQuotes = quoteRepository.findAll();
+//        model.addAttribute("books", quotedBooks);
+//        model.addAttribute("quote", allMyQuotes);
+//
+//
+
+        record BookWithQuotes(AllBooks book, List<Quotes> quotesList) {
+        }
+
+        List<BookWithQuotes> booksWithQuotes = new ArrayList<>();
+
+        for (AllBooks quotedBook : quotedBooks) {
+            booksWithQuotes.add(
+                    new BookWithQuotes(
+                            quotedBook,
+                            quoteRepository.findAllQuotesByBookId(quotedBook.getId()
+                            )
+                    )
+            );
+        }
+
+        System.out.println(booksWithQuotes.toString());
+
+        model.addAttribute("books", booksWithQuotes);
+
         return "quotes";
     }
+
 
 
     @PostMapping("/addquotes") //
     public String addNewQuotes(@RequestParam("quote") String quote, String title, Model model) {
         AllBooks searchBook = allBookRepository.findByTitle(title);
 
-        if(personalLibrary.contains(searchBook)) {
+        if (personalLibrary.contains(searchBook)) {
             Quotes newQuote = new Quotes(quote, searchBook);
             quoteRepository.save(newQuote);
             allMyQuotes.add(quoteRepository.findByQuote(quote));
 
+            record BookWithQuotes(AllBooks book, List<Quotes> quotesList) {
+            }
+
+            List<BookWithQuotes> booksWithQuotes = new ArrayList<>();
+
             quotedBooks.add(allBookRepository.findByTitle(title)); //Bücher die quotes haben
-            model.addAttribute("books", quotedBooks);
-            model.addAttribute("quote",allMyQuotes);
-        }else{
+
+            for (AllBooks quotedBook : quotedBooks) {
+                booksWithQuotes.add(
+                        new BookWithQuotes(
+                                quotedBook,
+                                quoteRepository.findAllQuotesByBookId(quotedBook.getId()
+                                )
+                        )
+                );
+            }
+
+
+            model.addAttribute("books", booksWithQuotes);
+        } else {
             model.addAttribute("errorMessage", "Book not found");
         }
 
         return ("redirect:/quotes");
     }
+    }
 
-}
+
+
+
+
