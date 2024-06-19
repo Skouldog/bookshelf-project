@@ -24,6 +24,9 @@ public class LandingPageController {
     Set<AllBooks> quotedBooks = new HashSet<AllBooks>(); //Bücher zu den es Quotes gibt
 
 
+
+
+
     @Autowired
     private IQuoteRepository quoteRepository; //Interface für alle Quotes
     List<Quotes> allMyQuotes = new ArrayList<>(); //Liste mit Quotes
@@ -153,7 +156,6 @@ for (AllBooks selectedBook : personalLibrary) {
     var quotesOfSelectedBook=quoteRepository.findQuotesByBookTitle(selectedBook.getTitle());
     if(quotesOfSelectedBook.size()>0){
         quotedBooks.add(selectedBook);
-        model.addAttribute("quotesOfSelectedBook", quotesOfSelectedBook);
         model.addAttribute("selectedBook", quotedBooks);
     }
 
