@@ -164,9 +164,15 @@
     </div>
 </div>
 
+{{#quotesOfSelectedBook}}
+    <p>{{quote}}</p>
+{{/quotesOfSelectedBook}}
 
 <div class="carousel ">
     {{#books}}
+        {{#quotesOfSelectedBook}}
+          <p>{{quote}}</p>
+        {{/quotesOfSelectedBook}}
         <div id="{{book.title}}">
             {{#quotesList}}
                 <div class="carousel-item active">
