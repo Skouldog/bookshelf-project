@@ -26,7 +26,6 @@ public class LandingPageController {
 
     @Autowired
     private IQuoteRepository quoteRepository; //Interface für alle Quotes
-    List<Quotes> allMyQuotes = new ArrayList<>(); //Liste mit Quotes
 
 
     @GetMapping(RESULTS_PATH) //Search Querery um Bücher zu finden
@@ -65,27 +64,49 @@ public class LandingPageController {
     }
 
 
-
-    public static class BookView{
+    public static class BookView {
         private String title;
         private String author;
         private int pages_total;
         private int page_current;
 
-        public String getTitle() { return title; }
-        public String getAuthor() { return author; }
-        public int getPages_total() { return pages_total; }
-        public int getPage_current() { return page_current; }
-        public void setTitle(String title) { this.title = title;}
-        public void setAuthor(String author) { this.author = author;}
-        public void setPages_total(int pages_total) { this.pages_total = pages_total;}
-        public void setPage_current(int page_current) { this.page_current = page_current;}
+        public String getTitle() {
+            return title;
+        }
+
+        public String getAuthor() {
+            return author;
+        }
+
+        public int getPages_total() {
+            return pages_total;
+        }
+
+        public int getPage_current() {
+            return page_current;
+        }
+
+        public void setTitle(String title) {
+            this.title = title;
+        }
+
+        public void setAuthor(String author) {
+            this.author = author;
+        }
+
+        public void setPages_total(int pages_total) {
+            this.pages_total = pages_total;
+        }
+
+        public void setPage_current(int page_current) {
+            this.page_current = page_current;
+        }
 
 
     }
 
     @GetMapping("/chosenBook/{title}")
-    public String get (@PathVariable String title, Model model) {
+    public String get(@PathVariable String title, Model model) {
         AllBooks searchedBook = allBookRepository.findByTitle(title);
 
         BookView bookView = new BookView();
@@ -94,11 +115,10 @@ public class LandingPageController {
         bookView.setPages_total(searchedBook.getPagesTotal());
         bookView.setPage_current(searchedBook.getPageCurrent());
 
-      //  model.addAttribute("TEST", searchedBook);
+        //  model.addAttribute("TEST", searchedBook);
         model.addAttribute("book", bookView);
         return "chosenBook";
     }
-
 
 
     @GetMapping("/autocomplete")  // Autocomplete für die Suche
@@ -120,8 +140,7 @@ public class LandingPageController {
     public String addNewBook(@RequestParam("title") String title,
                              @RequestParam("author") String author,
                              @RequestParam("PagesCurrent") int pagesCurrent,
-                             @RequestParam("PagesTotal") int pagesTotal, Model model)
-    {
+                             @RequestParam("PagesTotal") int pagesTotal, Model model) {
         AllBooks newBook = new AllBooks(title, author, pagesTotal, pagesCurrent);
         allBookRepository.save(newBook);
         personalLibrary.add(allBookRepository.findByTitle(title));
@@ -148,23 +167,21 @@ public class LandingPageController {
         }
 */
 
-for (AllBooks selectedBook : personalLibrary) {
+        for (AllBooks selectedBook : personalLibrary) {
 //      Hash Set              mit allen Qutoes von den Buch mit Titel XY
-    var quotesOfSelectedBook=quoteRepository.findQuotesByBookTitle(selectedBook.getTitle());
-    if(quotesOfSelectedBook.size()>0){      //Wenn Set Quotes hat
-        quotedBooks.add(selectedBook);      // dann zur Liste hinzufügen
-        model.addAttribute("quotesOfSelectedBook", quotesOfSelectedBook);
-        model.addAttribute("selectedBook", quotedBooks);
-    }
+            var quotesOfSelectedBook = quoteRepository.findQuotesByBookTitle(selectedBook.getTitle());
+            if (quotesOfSelectedBook.size() > 0) {      //Wenn Set Quotes hat
+                quotedBooks.add(selectedBook);      // dann zur Liste hinzufügen
+                model.addAttribute("quotesOfSelectedBook", quotesOfSelectedBook);
+                model.addAttribute("books", quotedBooks);
+            }
 
 
-
-}
-       // model.addAttribute("books", booksWithQuotes);
-
+        }
+        // model.addAttribute("books", booksWithQuotes);
+        model.addAttribute("books", quotedBooks);
         return "quotes";
     }
-
 
 
     @PostMapping("/addquotes") //
@@ -194,14 +211,13 @@ for (AllBooks selectedBook : personalLibrary) {
             }*/
 
 
-
         } else {
-           // model.addAttribute("errorMessage", "Book not found");
+            // model.addAttribute("errorMessage", "Book not found");
         }
 
         return ("redirect:/quotes");
     }
-    }
+}
 
 
 
