@@ -3,33 +3,28 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{book.title}}</title>
-
+{{#TEST}}
+    <title>{{title}}</title>
+{{/TEST}}
 </head>
 <body>
 
-<div class="totalBookView">
-    <a class="book-cover" >
-        <h3> {{book.title}}</h3>
-        <p> {{book.author}}</p>
-    </a>
-    <p class="pageCount"> {{book.page_current}} / {{book.pages_total}}</p>
-</div>
+
 
 <div>
-    <!--
+
     {{#TEST}}
     <div class="totalBookView">
 
-            <a class="book-cover" href="chosenBook/{{title}}">
+
                 <h3 id="book.title" > {{title}}</h3>
                 <p> {{author}}</p>
 
-            </a>
-            <p class="pageCount"> {{pageCurrent}} / {{pagesTotal}}</p>
 
+            <p class="pageCount"> {{pageCurrent}} / {{pagesTotal}}</p>
+    </div>
     {{/TEST}}
--->
+
 </div>
 
 <nav>
