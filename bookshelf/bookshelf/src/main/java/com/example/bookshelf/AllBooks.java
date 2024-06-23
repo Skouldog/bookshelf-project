@@ -25,7 +25,7 @@ public class AllBooks {
     @Column("PAGE_CURRENT")
     private int pageCurrent;
 
-    private String bookCoverURL;
+
 
 
 
@@ -69,7 +69,7 @@ public class AllBooks {
     public void setPageCurrent(int pageCurrent) {
         this.pageCurrent = pageCurrent;
     }
-public String getBookCoverURL() {return bookCoverURL; }
+
 
     //Overrides damit die Equals funktion richtig vergleicht
     @Override

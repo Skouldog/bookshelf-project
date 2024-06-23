@@ -109,11 +109,7 @@ public class LandingPageController {
 
     @GetMapping("/quotes")
     public String quotes(Model model) {
-//        allMyQuotes = quoteRepository.findAll();
-//        model.addAttribute("books", quotedBooks);
-//        model.addAttribute("quote", allMyQuotes);
-//
-//
+
 
         record BookWithQuotes(AllBooks book, List<Quotes> quotesList) {
         }
@@ -140,7 +136,7 @@ public class LandingPageController {
 
 
     @PostMapping("/addquotes") //
-    public String addNewQuotes(@RequestParam("quote") String quote, String title, Model model) {
+    public String addNewQuotes(RedirectAttributes redirectAttributes, @RequestParam("quote") String quote, String title, Model model) {
         AllBooks searchBook = allBookRepository.findByTitle(title);
 
         if (personalLibrary.contains(searchBook)) {
@@ -168,7 +164,7 @@ public class LandingPageController {
 
             model.addAttribute("books", booksWithQuotes);
         } else {
-            model.addAttribute("errorMessage", "Book not found");
+            redirectAttributes.addFlashAttribute("errorMessage", "Book not in Library");
         }
 
         return ("redirect:/quotes");

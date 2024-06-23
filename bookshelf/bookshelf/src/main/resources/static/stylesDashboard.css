@@ -128,16 +128,24 @@ nav{
 /*Autocomplete Style und Pop up*/
 .autocomplete-suggestions {
     border: 1px solid #ccc;
-    background: #fff;
-    max-height: 150px;
+    background-color: white;
+    max-height: 200px;
     overflow-y: auto;
     position: absolute;
     z-index: 1000;
+    width: 300px;
 }
+
 .autocomplete-suggestion {
     padding: 10px;
     cursor: pointer;
+    border-bottom: 1px solid #eee;
 }
+
 .autocomplete-suggestion:hover {
-    background: #e9e9e9;
+    background-color: #f0f0f0;
+}
+
+.autocomplete-suggestion:last-child {
+    border-bottom: none;
 }
