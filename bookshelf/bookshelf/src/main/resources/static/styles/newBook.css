@@ -5,19 +5,34 @@ body {
     margin: 0;
 }
 
+.header{
+    font-family: "Playfair Display SC";
+    font-size: 5rem;
+    font-weight: bold;
+
+}
+
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-form {
+
+.newBook-form{
+    margin: 2rem;
+}
+
+.newBook-form input{
     display: flex;
-    flex: 1;
-    align-items: center;
-    flex-direction: row;
-    justify-content: space-between;
-    position: relative;
-    bottom: 0;
+}
+
+
+.text-input input{
+
+
+}
+.number-input{
+
 }
 
 input {
@@ -34,6 +49,10 @@ input {
     text-align: center;
 }
 
+input:focus{
+    outline: none;
+}
+/*
 button {
     border: none;
     color: white;
@@ -44,4 +63,76 @@ button {
     margin-left: 1rem;
     box-shadow: 0.25rem 0.25rem #7a5b38;
     cursor: pointer;
+}*/
+
+.image-body {
+    margin-top: 6%;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
 }
+
+.carousel {
+    display: flex;
+    align-items: center;
+    position: relative;
+
+}
+.carousel-item {
+    display: none;
+    text-align: center;
+}
+.carousel-item.active {
+    display: block;
+}
+
+.carousel-button {
+    align-self: center;
+    align-content: center;
+    cursor: pointer;
+    z-index: 200;
+    margin: 1rem;
+}
+
+.carousel-button > img {
+    display: flex;
+    width: 4rem;
+    filter: drop-shadow(0rem 1rem #7a5b38);
+}
+.carousel-button > img:hover {
+    filter: drop-shadow(0rem 1rem #38637a);
+}
+
+
+
+
+.imageSelect{
+    height: 350px;
+    width: 280px;
+    object-fit: cover;
+    border-radius: 20px;
+    box-shadow: 1rem 1rem #7a5b38;
+}
+
+
+.add-new-book {
+    border: none;
+    color: white;
+    height: 2rem;
+    border-radius: 20px;
+    background-color: #d8ae7e;
+    width: 4rem;
+    margin-left: 1rem;
+    box-shadow: 0.25rem 0.25rem #7a5b38;
+    cursor: pointer;
+}
+
+.add-new-book:hover {
+    background-color: #96b6c5;
+    box-shadow: 0.25rem 0.25rem #38637a;
+}
+
+
+

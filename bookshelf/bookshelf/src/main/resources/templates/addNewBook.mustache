@@ -8,12 +8,61 @@
 </head>
 <body>
 
-<div class="structure">
+<div class="header">
+    <div class="Title">New Book</div>
+</div>
+
+<div class="image-body">
+
+
+
+    <div class="carousel">
+        <div class="carousel-button left" id="prev">
+            <img class="arrowprev" src="assets/whiteprev.png" alt="" />
+        </div>
+            <div class="carousel-item active">
+                <img class="imageSelect" src="images/3.jpg">
+            </div>
+
+            <div class="carousel-item">
+                <img class="imageSelect" src="images/4.jpg">
+            </div>
+
+            <div class="carousel-item">
+                <img class="imageSelect" src="images/6.jpg">
+            </div>
+
+            <div class="carousel-item">
+                <img class="imageSelect" src="images/7.jpg">
+            </div>
+
+            <div class="carousel-item">
+                <img class="imageSelect" src="images/8.jpg">
+            </div>
+            <div class="carousel-item">
+                <img class="imageSelect" src="images/9.jpg">
+            </div>
+
+        <div class="carousel-button right" id="next">
+            <img class="arrownext" src="assets/whitenext.png" alt="" />
+        </div>
+    </div>
+
+
+</div>
+
+
+<div class="newBook-form">
     <form method="post" action="/addNewBook">
-        <input type="text" placeholder="Title" name="title" value="{{title}}" required>
-        <input type="text" placeholder="Author" name="author" required>
-        <input type="number" placeholder="Page Current" name="PagesCurrent" required>
-        <input type="number" placeholder="Pages Total" name="PagesTotal" required>
+        <div class="text-input">
+            <input type="text" placeholder="Title" name="title" value="{{title}}" required>
+            <input type="text" placeholder="Author" name="author" required>
+        </div>
+        <div class="number-input">
+            <input type="number" placeholder="Page Current" name="PagesCurrent" required>
+            <input type="number" placeholder="Pages Total" name="PagesTotal" required>
+        </div>
+
 
         <select hidden name="url" id="urlSelect"  required>
             <option  value="images/3.jpg" data-image="images/3.jpg" >Cover 1</option>
@@ -24,23 +73,14 @@
             <option value="images/9.jpg" data-image="images/9.jpg" >Cover 2</option>
 
         </select>
-
-        <img id="exampleImage" class="example-image" >
-
         <button class="add-new-book" type="submit">Create</button>
     </form>
 </div>
 
-<div class="carousel">
-    <img class="imageSelect" src="images/3.jpg">
-    <img class="imageSelect" src="images/4.jpg">
-    <img class="imageSelect" src="images/6.jpg">
-    <img class="imageSelect" src="images/7.jpg">
-    <img class="imageSelect" src="images/8.jpg">
-    <img class="imageSelect" src="images/9.jpg">
-</div>
+
 
 <script>
+    /*
     document.getElementById('urlSelect').addEventListener('change', function() {
         var selectedOption = this.options[this.selectedIndex];
         var imageUrl = selectedOption.getAttribute('data-image');
@@ -53,15 +93,47 @@
             exampleImage.style.display = 'none';
         }
     });
+    */
+
+
+    document.addEventListener("DOMContentLoaded", function () {
+        let currentIndex = 0;
+        const items = document.querySelectorAll('.carousel-item');
+        const totalItems = items.length;
+
+        function showItem(index) {
+            items.forEach((item, i) => {
+                item.classList.toggle('active', i === index);
+            });
+        }
+
+        function nextItem() {
+            currentIndex = (currentIndex + 1) % totalItems;
+            showItem(currentIndex);
+        }
+
+        function prevItem() {
+            currentIndex = (currentIndex - 1 + totalItems) % totalItems;
+            showItem(currentIndex);
+        }
+
+        document.getElementById('next').addEventListener('click', nextItem);
+        document.getElementById('prev').addEventListener('click', prevItem);
+
+        showItem(currentIndex);
+    });
+
+        //ÜBERGABE VON VALUE AN SELECTION
 
     window.onload = function () {
         const images = document.getElementsByClassName("imageSelect")
         for (let i = 0; i < images.length; i++) {
-            images[i].addEventListener("click", function (){
+            images[i].addEventListener("click", function () {
                 document.getElementById("urlSelect").value = images[i].getAttribute("src");
             })
         }
     }
+
 </script>
 </body>
 </html>
