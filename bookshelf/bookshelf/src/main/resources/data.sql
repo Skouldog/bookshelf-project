@@ -9,7 +9,7 @@ CREATE TABLE IF NOT EXISTS ALLBOOKS (
                                      AUTHOR VARCHAR(255) NOT NULL,
                                      PAGES_TOTAL INT NOT NULL,
                                      PAGE_CURRENT INT,
-BOOK_URL VARCHAR(255) NOT NULL
+                                     BOOK_URL VARCHAR(255) NOT NULL
 );
 
 

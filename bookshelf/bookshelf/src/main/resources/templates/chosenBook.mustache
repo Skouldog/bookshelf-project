@@ -14,11 +14,14 @@
 <div>
 
     {{#BOOK}}
+        <img src="{{booKUrl}}" alt="" />
     <div class="totalBookView">
 
-
-                <h3 id="book.title" > {{title}}</h3>
-                <p> {{author}}</p>
+        <div class="image">
+            <img class="book-cover" src="../{{booKUrl}}" alt="" />
+        </div>
+        <h3 id="book.title" > {{title}}</h3>
+        <p> {{author}}</p>
 
 
             <p class="pageCount"> {{pageCurrent}} / {{pagesTotal}}</p>
