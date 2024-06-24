@@ -153,6 +153,7 @@ input:focus {
     justify-content: center;
     min-height: 400px;
 
+
 }
 
 .carousel-button {
@@ -182,12 +183,14 @@ input:focus {
 }
 
 .container {
-    height: 400px;
+    min-height: 400px;
     display: flex;
+    flex: 1;
     align-items: center;
-    justify-content: space-between;
     overflow: hidden;
-    margin: 0rem 5rem;
+    margin: 0 5rem;
+
+    justify-content: center;
 
 }
 .carousel-content {
@@ -199,9 +202,9 @@ input:focus {
 
     overflow-x: auto;
     overflow-y: hidden;
-    height: 100%;
+    min-height: 400px;
     overscroll-behavior-inline: contain;
-    margin: 1rem;
+    padding: 1.5rem;
 
 }
 

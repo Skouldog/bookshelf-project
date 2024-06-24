@@ -11,18 +11,22 @@
     <div class="title">My Books</div>
 
     <!--Live Auto Suggestion -->
-    <form action="/getMappingResults" method="get">
-        <input
-                type="text"
-                name="name"
-                placeholder="Search"
-                class="searchbar"
-                id="searchbar"
-                autocomplete="off"
-        />
-        <div id="autocomplete-list" class="autocomplete-suggestions" aut></div>
-        <input type="submit" value="Go" />
-    </form>
+    <div class="search-form">
+
+        <form action="/getMappingResults" method="get">
+            <input
+                    type="text"
+                    name="name"
+                    placeholder="Search"
+                    class="searchbar"
+                    id="searchbar"
+                    autocomplete="off"
+            />
+            <div id="autocomplete-list" class="autocomplete-suggestions" aut></div>
+            <input class="add-button" type="submit" value="Go" />
+        </form>
+    </div>
+
     <!--Falls ungültiges Buch wird Fehlernachricht gesendet -->
     {{#errorMessage}}
         <div class="error">
@@ -30,8 +34,12 @@
         </div>
     {{/errorMessage}}
 </div>
+
+<div class="main">
+    <div class="carousel-button left" id="prev">
+        <img class="arrowprev" src="assets/whiteprev.png" alt="" />
+    </div>
 <div class="container">
-    <button id="prev">prev</button>
 
     <div class="carousel-content snaps-inline">
         {{#books}}
@@ -49,9 +57,11 @@
         </div>
             {{/books}}
     </div>
-    <button id="next">next</button>
 </div>
-
+    <div class="carousel-button right" id="next">
+        <img class="arrownext" src="assets/whitenext.png" alt="" />
+    </div>
+</div>
 <!--Navigations Button um Seiten zu navigieren -->
 <nav class="menu-bar">
     <form method="get" action="/dashboard">
@@ -118,12 +128,12 @@
 
     nextBtn.addEventListener("click", () => {
         scrollSlide.style.scrollBehavior = "smooth";
-        scrollSlide.scrollLeft += 900;
+        scrollSlide.scrollLeft += 300;
     });
 
     prevBtn.addEventListener("click", () => {
         scrollSlide.style.scrollBehavior = "smooth";
-        scrollSlide.scrollLeft -= 900;
+        scrollSlide.scrollLeft -= 300;
     });
 
 </script>
