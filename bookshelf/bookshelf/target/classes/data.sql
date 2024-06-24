@@ -1,7 +1,6 @@
 
 DROP TABLE IF EXISTS ALLBOOKS;
 DROP TABLE IF EXISTS QUOTES;
-DROP TABLE IF EXISTS IMAGES;
 
 CREATE TABLE IF NOT EXISTS ALLBOOKS (
                                      ID LONG AUTO_INCREMENT PRIMARY KEY,
@@ -17,11 +16,11 @@ CREATE TABLE IF NOT EXISTS ALLBOOKS (
 
 
 INSERT INTO ALLBOOKS (TITLE, AUTHOR, PAGES_TOTAL, PAGE_CURRENT, BOOK_URL) VALUES
-                                                          ('Harry Potter', 'J.K. Rowling', 400, 0, 'images/1.jpg'),
-                                                          ('Lord of the Rings', 'J.R.R. Tolkien', 800, 0, 'images/2.jpg'),
-                                                          ('Hitchhikers Guide to the Galaxy', 'Douglas Adams', 200, 199, 'images/1.jpg'),
-                                                          ('The Hunger Games 2', 'Suzanne Collins', 330, 54, 'images/1.jpg'),
-                                                            ('The Hunger Games', 'Suzanne Collins', 300, 14,'images/1.jpg');
+                                                          ('Harry Potter', 'J.K. Rowling', 400, 0, 'images/3.jpg'),
+                                                          ('Lord of the Rings', 'J.R.R. Tolkien', 800, 0, 'images/4.jpg'),
+                                                          ('Hitchhikers Guide to the Galaxy', 'Douglas Adams', 200, 199, 'images/8.jpg'),
+                                                          ('The Hunger Games 2', 'Suzanne Collins', 330, 54, 'images/6.jpg'),
+                                                            ('The Hunger Games', 'Suzanne Collins', 300, 14,'images/7.jpg');
 
 
 

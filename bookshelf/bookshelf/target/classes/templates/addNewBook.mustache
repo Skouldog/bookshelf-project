@@ -5,11 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>addNewBook</title>
     <style>
-        .image{
-            height: 200px;
-            width:300px;
-            background: url("/images/1.jpg");
-        }
+
     </style>
 </head>
 <body>
@@ -22,9 +18,12 @@
         <input type="number" placeholder="Pages Total" name="PagesTotal" required>
 
         <select hidden name="url" id="urlSelect"  required>
-            <option value="" disabled selected>Select a Cover</option>
-            <option  value="images/1.jpg" data-image="images/1.jpg" >Cover 1</option>
-            <option value="images/2.jpg" data-image="images/2.jpg" >Cover 2</option>
+            <option  value="images/3.jpg" data-image="images/3.jpg" >Cover 1</option>
+            <option value="images/4.jpg" data-image="images/4.jpg" >Cover 2</option>
+            <option value="images/6.jpg" data-image="images/6.jpg" >Cover 2</option>
+            <option value="images/7.jpg" data-image="images/7.jpg" >Cover 2</option>
+            <option value="images/8.jpg" data-image="images/8.jpg" >Cover 2</option>
+            <option value="images/9.jpg" data-image="images/9.jpg" >Cover 2</option>
 
         </select>
 
@@ -34,9 +33,13 @@
     </form>
 </div>
 
-<div>
-    <img class="imageSelect" src="images/1.jpg">
-    <img class="imageSelect" src="images/2.jpg">
+<div class="carousel">
+    <img class="imageSelect" src="images/3.jpg">
+    <img class="imageSelect" src="images/4.jpg">
+    <img class="imageSelect" src="images/6.jpg">
+    <img class="imageSelect" src="images/7.jpg">
+    <img class="imageSelect" src="images/8.jpg">
+    <img class="imageSelect" src="images/9.jpg">
 </div>
 
 <script>
