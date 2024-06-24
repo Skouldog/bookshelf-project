@@ -1,0 +1,245 @@
+body {
+    background-color: #f4e8d7;
+    padding: 6% 16%;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+}
+
+.header {
+    padding: 0px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    position: fixed;
+    height: 50px;
+
+    left: 440px;
+    right: 440px;
+    bottom: 100px;
+}
+
+.menu-bar button {
+    padding: 10px;
+    margin: 10px;
+
+    border-style: none;
+    border-radius: 20px;
+    width: 160px;
+    height: 45px;
+
+    background-color: #d8ae7e;
+
+    font-size: 1rem;
+}
+
+.menu-bar button:hover {
+    background-color: #96b6c5;
+}
+.title {
+    font-family: Playfair Display;
+    font-size: 5rem;
+    font-weight: bold;
+    color: #102c57;
+}
+
+.searchbar {
+    /*Placement*/
+    display: flex;
+    flex: 1;
+    flex-grow: 1;
+    padding-left: 20px;
+    vertical-align: middle;
+    /*Style*/
+    border: none;
+    background-color: #cccccc;
+    border-radius: 15px;
+
+    /*Größe*/
+    height: 30px;
+}
+.searchbar::placeholder {
+    color: white;
+    border: none;
+}
+
+/* Bookcover, die Boxen die Info enthält
+.book-cover {
+
+  border: none;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: #cccccc;
+
+
+  min-width: 140px;
+  max-width: 140px;
+  height: 200px;
+
+
+  text-align: center;
+  text-decoration-line: none;
+  color: black;
+}*/
+
+/*Seitenzahl und Position*/
+.pageCount {
+    font-size: 0.8em;
+    margin-left: 7px;
+    margin-top: 5px;
+}
+
+/* Linie in der Mitte um Bücher zu trennen*/
+hr {
+    border: 10px solid #cccccc;
+    border-radius: 10px;
+    width: 60%;
+    position: absolute;
+    top: 50%;
+}
+
+.autocomplete-suggestions {
+    border: 1px solid #ccc;
+    background: #fff;
+    max-height: 150px;
+    overflow-y: auto;
+    position: absolute;
+    z-index: 1000;
+}
+.autocomplete-suggestion {
+    padding: 10px;
+    cursor: pointer;
+}
+.autocomplete-suggestion:hover {
+    background: #e9e9e9;
+}
+
+/* .carousel-content {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 140px));
+  grid-template-rows: repeat(2, 1fr);
+  gap: 1rem;
+  background-color: #96b6c5;
+}*/
+
+.container {
+    margin-top: 6%;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+}
+.carousel-content {
+    display: grid;
+
+    grid-auto-flow: column;
+    gap: 2rem;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-inline: contain;
+    margin: 1rem;
+}
+
+.carousel-content::-webkit-scrollbar {
+    display: none;
+}
+.snaps-inline {
+    scroll-snap-type: inline mandatory;
+}
+.snaps-inline > * {
+    scroll-snap-align: start;
+}
+
+#prev,
+#next {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    border: none;
+    background-color: #d8ae7e;
+    color: white;
+}
+.book {
+}
+
+.book,
+.image {
+    position: relative;
+    height: 280px;
+    width: 210px;
+    border-radius: 10px;
+}
+
+.book-cover {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.book-info {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    font-weight: bold;
+}
+.book-title {
+    position: absolute;
+    top: 0;
+    padding: 1rem;
+}
+.book-author {
+    position: absolute;
+    bottom: 0;
+    padding: 0.25rem;
+}
+/* Linie in der Mitte um Bücher zu trennen*/
+hr{
+    border: 10px solid #CCcccc;;
+    border-radius: 10px;
+    width: 60%;
+    position: absolute;
+    top: 50%;
+
+
+}
+
+/*Autocomplete Style und Pop up*/
+.autocomplete-suggestions {
+    border: 1px solid #ccc;
+    background-color: white;
+    max-height: 200px;
+    overflow-y: auto;
+    position: absolute;
+    z-index: 1000;
+    width: 300px;
+}
+
+.autocomplete-suggestion {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.autocomplete-suggestion:hover {
+    background-color: #f0f0f0;
+}
+
+.autocomplete-suggestion:last-child {
+    border-bottom: none;
+}
