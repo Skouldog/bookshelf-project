@@ -13,10 +13,33 @@
         <input type="text" placeholder="Author" name="author" required>
         <input type="number" placeholder="Page Current" name="PagesCurrent" required>
         <input type="number" placeholder="Pages Total" name="PagesTotal" required>
+        <select name="url" id="urlSelect" required>
+            <option value="" disabled selected>Select a Cover</option>
+            <option value="images/1.jpg" data-image="images/1.jpg" >Cover 1</option>
+            <option value="images/2.jpg" data-image="images/2.jpg" >Cover 2</option>
+
+        </select>
+
+        <img id="exampleImage" class="example-image" >
+
         <button class="add-new-book" type="submit">Create</button>
     </form>
 </div>
 
 
+<script>
+    document.getElementById('urlSelect').addEventListener('change', function() {
+        var selectedOption = this.options[this.selectedIndex];
+        var imageUrl = selectedOption.getAttribute('data-image');
+        var exampleImage = document.getElementById('exampleImage');
+
+        if (imageUrl) {
+            exampleImage.src = imageUrl;
+            exampleImage.style.display = 'block';
+        } else {
+            exampleImage.style.display = 'none';
+        }
+    });
+</script>
 </body>
 </html>

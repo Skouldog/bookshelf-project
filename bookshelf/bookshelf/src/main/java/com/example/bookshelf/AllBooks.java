@@ -25,15 +25,16 @@ public class AllBooks {
     @Column("PAGE_CURRENT")
     private int pageCurrent;
 
+@Column("BOOK_URL")
+    private String booKUrl;
 
 
-
-
-    public AllBooks(String title, String author, int pagesTotal, int pageCurrent) {
+    public AllBooks(String title, String author, int pagesTotal, int pageCurrent, String booKUrl) {
         this.title = title;
         this.author = author;
         this.pagesTotal = pagesTotal;
         this.pageCurrent = pageCurrent;
+        this.booKUrl = booKUrl;
     }
 
 
@@ -69,8 +70,8 @@ public class AllBooks {
     public void setPageCurrent(int pageCurrent) {
         this.pageCurrent = pageCurrent;
     }
-
-
+    public String getBooKUrl() {return booKUrl;}
+    public void setBooKUrl(String booKUrl) {this.booKUrl = booKUrl;}
     //Overrides damit die Equals funktion richtig vergleicht
     @Override
     public boolean equals(Object obj) {

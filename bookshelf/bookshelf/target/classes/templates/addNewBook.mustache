@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>addNewBook</title>
-    <link rel="stylesheet" href="styles/newBook.css">
 </head>
 <body>
 
@@ -14,53 +13,33 @@
         <input type="text" placeholder="Author" name="author" required>
         <input type="number" placeholder="Page Current" name="PagesCurrent" required>
         <input type="number" placeholder="Pages Total" name="PagesTotal" required>
+        <select name="url" id="urlSelect" required>
+            <option value="" disabled selected>Select a Cover</option>
+            <option value="images/1.jpg" data-image="images/1.jpg" >Cover 1</option>
+            <option value="images/2.jpg" data-image="images/2.jpg" >Cover 2</option>
+
+        </select>
+
+        <img id="exampleImage" class="example-image" >
+
         <button class="add-new-book" type="submit">Create</button>
     </form>
 </div>
-<div>
-    <div class="prev" id="prev"> prev</div>
-    <div class="cover-container">
-        <img id="cover" class="cover" src="">
 
-    </div>
-    <div class="next" id="next"> next</div>
 
-</div>
-<nav class="menu-bar">
-    <form method="get" action="/dashboard">
-        <button class="go-dash-button" type="submit">Bookshelf</button>
-    </form>
-    <form method="get" action="/quotes">
-        <button class="go-quotes-button" type="submit">Quotes</button>
-    </form>
-    <form method="get" action="/impressum">
-        <button class="go-impressum-button" type="submit">Impressum</button>
-    </form>
-</nav>
 <script>
-    const images =["images/1.jpg","images/2.jpg"]
-    let currentImageIndex=0;
-    let coverImage = document.querySelector(".cover")
+    document.getElementById('urlSelect').addEventListener('change', function() {
+        var selectedOption = this.options[this.selectedIndex];
+        var imageUrl = selectedOption.getAttribute('data-image');
+        var exampleImage = document.getElementById('exampleImage');
 
-    function nextItem() {
-        currentImageIndex = (currentImageIndex + 1) % images.length;
-        updateCover(currentImageIndex);
-    }
-
-    function prevItem() {
-        currentImageIndex = (currentImageIndex - 1 + images.length) % images.length;
-        updateCover(currentImageIndex);
-    }
-
-    document.getElementById('next').addEventListener('click', nextItem);
-    document.getElementById('prev').addEventListener('click', prevItem);
-
-    function updateCover(currentImageIndex){
-        coverImage.src = images[currentImageIndex];
-    }
-
-    updateCover();
-
+        if (imageUrl) {
+            exampleImage.src = imageUrl;
+            exampleImage.style.display = 'block';
+        } else {
+            exampleImage.style.display = 'none';
+        }
+    });
 </script>
 </body>
 </html>

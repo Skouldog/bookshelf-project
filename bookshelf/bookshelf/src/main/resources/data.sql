@@ -8,20 +8,20 @@ CREATE TABLE IF NOT EXISTS ALLBOOKS (
                                      TITLE VARCHAR(255) NOT NULL,
                                      AUTHOR VARCHAR(255) NOT NULL,
                                      PAGES_TOTAL INT NOT NULL,
-                                     PAGE_CURRENT INT
-
+                                     PAGE_CURRENT INT,
+BOOK_URL VARCHAR(255) NOT NULL
 );
 
 
 
 
 
-INSERT INTO ALLBOOKS (TITLE, AUTHOR, PAGES_TOTAL, PAGE_CURRENT) VALUES
-                                                          ('Harry Potter', 'J.K. Rowling', 400, 0),
-                                                          ('Lord of the Rings', 'J.R.R. Tolkien', 800, 0),
-                                                          ('Hitchhikers Guide to the Galaxy', 'Douglas Adams', 200, 199),
-                                                          ('The Hunger Games 2', 'Suzanne Collins', 330, 54),
-                                                            ('The Hunger Games', 'Suzanne Collins', 300, 14);
+INSERT INTO ALLBOOKS (TITLE, AUTHOR, PAGES_TOTAL, PAGE_CURRENT, BOOK_URL) VALUES
+                                                          ('Harry Potter', 'J.K. Rowling', 400, 0, 'images/1.jpg'),
+                                                          ('Lord of the Rings', 'J.R.R. Tolkien', 800, 0, 'images/2.jpg'),
+                                                          ('Hitchhikers Guide to the Galaxy', 'Douglas Adams', 200, 199, 'images/1.jpg'),
+                                                          ('The Hunger Games 2', 'Suzanne Collins', 330, 54, 'images/1.jpg'),
+                                                            ('The Hunger Games', 'Suzanne Collins', 300, 14,'images/1.jpg');
 
 
 

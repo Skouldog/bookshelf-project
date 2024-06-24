@@ -99,9 +99,12 @@ public class LandingPageController {
     public String addNewBook(@RequestParam("title") String title,
                              @RequestParam("author") String author,
                              @RequestParam("PagesCurrent") int pagesCurrent,
-                             @RequestParam("PagesTotal") int pagesTotal, Model model)
+                             @RequestParam("PagesTotal") int pagesTotal,
+                             @RequestParam("url")String bookUrl,
+                             Model model)
     {
-        AllBooks newBook = new AllBooks(title, author, pagesTotal, pagesCurrent);
+
+        AllBooks newBook = new AllBooks(title, author, pagesTotal, pagesCurrent, bookUrl);
         allBookRepository.save(newBook);
         personalLibrary.add(allBookRepository.findByTitle(title));
         return ("redirect:/dashboard");
