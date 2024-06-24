@@ -1,0 +1,345 @@
+body {
+    background-color: #f4e8d7;
+    padding: 5% 10%;
+    margin: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    height:90%;
+}
+
+@media(max-height: 900px){
+    body{
+        overflow-y: auto;
+    }
+}
+
+
+
+.header {
+    /*position: relative;*/
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+    align-items: center;
+}
+
+.title{
+font-family: Playfair Display SC;
+color: #102c57;
+font-size: 5rem;
+font-weight: bold;
+padding-bottom: 1rem;
+}
+
+.search-form {
+    align-content: center;
+
+}
+
+.search-form form {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    align-self: center;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
+
+}
+
+.searchbar{
+    flex: 1;
+    padding: 0.25rem;
+    border: none;
+    border-radius: 20px;
+    background-color: #dac0a3;
+    height: 2rem;
+    font-size: 1rem;
+    font-weight: bold;
+    box-shadow: 0.5rem 0.5rem #7a5b38;
+    cursor: pointer;
+    color: #102c57;
+    text-align: center;
+
+}
+
+.searchbar:hover{
+    background-color: #cee6f3;
+    box-shadow: 0.25rem 0.25rem #38637a;
+}
+
+input:focus {
+    outline: none;
+}
+.add-button {
+    border: none;
+    color: white;
+    height: 2rem;
+    border-radius: 20px;
+    background-color: #d8ae7e;
+    width: 4rem;
+    margin-left: 1rem;
+    box-shadow: 0.25rem 0.25rem #7a5b38;
+    cursor: pointer;
+}
+
+.add-button:hover {
+    background-color: #96b6c5;
+    box-shadow: 0.25rem 0.25rem #38637a;
+}
+
+
+
+
+.searchbar::placeholder {
+    color: white;
+    border: none;
+}
+
+/* Bookcover, die Boxen die Info enthält
+.book-cover {
+
+  border: none;
+  border-radius: 20px;
+  padding: 20px;
+  background-color: #cccccc;
+
+
+  min-width: 140px;
+  max-width: 140px;
+  height: 200px;
+
+
+  text-align: center;
+  text-decoration-line: none;
+  color: black;
+}*/
+
+/*Seitenzahl und Position*/
+.pageCount {
+    font-size: 0.8em;
+    margin-left: 7px;
+    margin-top: 5px;
+}
+
+/* Linie in der Mitte um Bücher zu trennen*/
+hr {
+    border: 10px solid #cccccc;
+    border-radius: 10px;
+    width: 60%;
+    position: absolute;
+    top: 50%;
+}
+
+.main{
+
+        margin-top: 6%;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 400px;
+}
+
+.container {
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    overflow: hidden;
+
+
+}
+.carousel-content {
+    display: grid;
+
+    grid-auto-flow: column;
+    gap: 2rem;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-inline: contain;
+    margin: 1rem;
+    min-height: 350px;
+    align-items: center;
+}
+
+.carousel-content::-webkit-scrollbar {
+    display: none;
+}
+.snaps-inline {
+    scroll-snap-type: inline mandatory;
+}
+.snaps-inline > * {
+    scroll-snap-align: start;
+}
+
+.carousel-button {
+    position: absolute;
+    align-self: center;
+    align-content: center;
+
+    cursor: pointer;
+    z-index: 200;
+}
+
+.carousel-button > img {
+    display: flex;
+    width: 4rem;
+    filter: drop-shadow(0rem 1rem #7a5b38);
+}
+.carousel-button > img:hover {
+    filter: drop-shadow(0rem 1rem #38637a);
+}
+
+.left {
+    left: 0;
+}
+
+.right {
+    right: 0;
+}
+
+.book{
+    box-shadow: 0.5rem 0.5rem #7a5b38;
+}
+
+.book:hover{
+    box-shadow: 0.5rem 0.5rem #38637a;
+}
+.book,
+.image {
+    position: relative;
+    height: 280px;
+    width: 210px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.book-cover {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+}
+.book-info {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    color: white;
+    font-weight: bold;
+}
+.book-title {
+    position: absolute;
+    top: 0;
+    padding: 1rem;
+}
+.book-author {
+    position: absolute;
+    bottom: 0;
+    padding: 0.25rem;
+}
+
+
+
+.menu-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    margin-top: 5rem;
+}
+
+.menu-bar button {
+    padding: 10px;
+    margin: 10px;
+
+    border-style: none;
+    border-radius: 20px;
+    width: 160px;
+    height: 45px;
+
+    color: antiquewhite;
+
+    background-color: #d8ae7e;
+
+    font-size: 1rem;
+
+    cursor: pointer;
+    box-shadow: 0.25rem 0.25rem #7a5b38;
+}
+
+.menu-bar button:hover {
+    background-color: #cee6f3;
+    box-shadow: 0.3rem 0.3rem #38637a;
+    color: #102c57;
+}
+
+.menu-bar button:checked {
+    background-color: #cee6f3;
+    box-shadow: 0.3rem 0.3rem #38637a;
+    color: #102c57;
+}
+
+.autocomplete-suggestions{
+    position: absolute;
+    top: 2.5rem;
+    left: 2rem;
+
+    overflow-y: auto;
+    z-index: 1000;
+
+    background-color: #7a5b38;
+    color: white;
+    border-radius: 2px;
+
+    padding: 4px 6px;
+}
+
+.autocomplete-suggestion {
+    padding: 10px;
+    cursor: pointer;
+    opacity: 1;
+
+}
+
+.autocomplete-suggestion:hover {
+    background-color: #f0f0f0;
+}
+
+.autocomplete-suggestion:last-child {
+    border-bottom: none;
+}
+
+/*Autocomplete Style und Pop up
+.autocomplete-suggestions {
+    border: 1px solid #ccc;
+    background-color: white;
+    max-height: 200px;
+    overflow-y: auto;
+    position: absolute;
+    z-index: 1000;
+    width: 300px;
+}
+
+.autocomplete-suggestion {
+    padding: 10px;
+    cursor: pointer;
+    border-bottom: 1px solid #eee;
+}
+
+.autocomplete-suggestion:hover {
+    background-color: #f0f0f0;
+}
+
+.autocomplete-suggestion:last-child {
+    border-bottom: none;
+}*/
+
+
+
