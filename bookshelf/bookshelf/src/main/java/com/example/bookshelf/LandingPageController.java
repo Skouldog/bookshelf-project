@@ -71,7 +71,7 @@ public class LandingPageController {
     public String get (@PathVariable String title, Model model) {
         AllBooks searchedBook = allBookRepository.findByTitle(title);
 
-        model.addAttribute("TEST", searchedBook);
+        model.addAttribute("BOOK", searchedBook);
 
         return "chosenBook";
     }
