@@ -28,6 +28,8 @@ public class AllBooks {
 @Column("BOOK_URL")
     private String booKUrl;
 
+static int progress;
+
 
     public AllBooks(String title, String author, int pagesTotal, int pageCurrent, String booKUrl) {
         this.title = title;
@@ -35,6 +37,7 @@ public class AllBooks {
         this.pagesTotal = pagesTotal;
         this.pageCurrent = pageCurrent;
         this.booKUrl = booKUrl;
+         progress = (int) Math.ceil( pageCurrent*100 / pagesTotal); ;
     }
 
 
