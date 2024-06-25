@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>quotePage</title>
     <link rel="stylesheet" href="styles/quotePage.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 
 <body>
@@ -19,6 +26,7 @@
                     name="title"
                     id="title"
                     placeholder="book title"
+                    autocomplete="off"
             />
             <div id="autocomplete-list" class="autocomplete-suggestions"></div>
             <input
@@ -27,6 +35,7 @@
                     name="quote"
                     id="quote"
                     placeholder="add new Quote"
+                    autocomplete="off"
             />
 
             <input class="add-button" type="submit" value="+" />

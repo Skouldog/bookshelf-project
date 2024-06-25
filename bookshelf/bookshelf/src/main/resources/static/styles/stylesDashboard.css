@@ -1,3 +1,4 @@
+
 body {
     background-color: #f4e8d7;
     padding: 5% 10%;
@@ -5,6 +6,11 @@ body {
     overflow-x: auto;
     overflow-y: hidden;
     height:90%;
+    background-image: url("/images/dashBack.png");
+    background-repeat: no-repeat ;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 @media(max-height: 800px){
@@ -23,8 +29,11 @@ body {
     align-items: center;
 }
 .title {
-    font-family: Playfair Display SC;
-    color: #102c57;
+    font-family: "Playfair Display SC";
+    color: #271e17;
+    /*   color: #f6be7b;
+    *
+       color: #102c57;*/
     font-size: 5rem;
     font-weight: bold;
     padding-bottom: 1rem;
@@ -32,10 +41,10 @@ body {
 
 .serch-form {
     align-content: center;
-
 }
 
 .search-form form {
+
     display: flex;
     flex: 1;
     align-items: center;
@@ -51,7 +60,8 @@ body {
     border: none;
     background-color: #dac0a3;
     height: 2rem;
-    font-size: 1rem;
+    font-family: Nunito;
+    font-size: 1.25rem;
     font-weight: bold;
     box-shadow: 0.5rem 0.5rem #7a5b38;
     cursor: pointer;
@@ -60,6 +70,7 @@ body {
     border-radius: 20px;
 }
 .searchbar:hover{
+    background-color: #cee6f3;
     box-shadow: 0.5rem 0.5rem #38637a;
 }
 
@@ -82,6 +93,8 @@ input:focus {
     margin-left: 1rem;
     box-shadow: 0.25rem 0.25rem #7a5b38;
     cursor: pointer;
+    font-family: Nunito;
+    font-weight: bold;
 }
 
 .add-button:hover {
@@ -97,7 +110,9 @@ input:focus {
     flex-direction: row;
     justify-content: center;
 
-    margin-top: 5rem;
+    margin-top: 2.5rem;
+
+
 }
 
 .menu-bar button {
@@ -113,10 +128,13 @@ input:focus {
 
     background-color: #d8ae7e;
 
-    font-size: 1rem;
+    font-size: 1.2rem;
 
     cursor: pointer;
     box-shadow: 0.25rem 0.25rem #7a5b38;
+
+    font-family: Nunito;
+    font-weight: bold;
 }
 
 .menu-bar button:hover {
@@ -257,6 +275,7 @@ input:focus {
     flex-direction: column;
     color: white;
     font-weight: bold;
+    filter: drop-shadow(0.1rem 0.1rem #402a0b);
 }
 .book-title {
     position: absolute;
@@ -293,6 +312,8 @@ input:focus {
     border-radius: 2px;
 
     padding: 4px 6px;
+
+    font-family: "Playfair Display";
 }
 
 

@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>addNewBook</title>
     <link rel="stylesheet" href="styles/newBook.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
 
@@ -21,27 +24,70 @@
             <img class="arrowprev" src="assets/whiteprev.png" alt="" />
         </div>
             <div class="carousel-item active">
-                <img class="imageSelect" src="images/3.jpg">
+                <img class="imageSelect" src="images/1.png">
             </div>
 
             <div class="carousel-item">
-                <img class="imageSelect" src="images/4.jpg">
+                <img class="imageSelect" src="images/2.png">
             </div>
 
             <div class="carousel-item">
-                <img class="imageSelect" src="images/6.jpg">
+                <img class="imageSelect" src="images/3.png">
             </div>
 
             <div class="carousel-item">
-                <img class="imageSelect" src="images/7.jpg">
+                <img class="imageSelect" src="images/4.png">
             </div>
 
             <div class="carousel-item">
-                <img class="imageSelect" src="images/8.jpg">
+                <img class="imageSelect" src="images/5.png">
             </div>
             <div class="carousel-item">
-                <img class="imageSelect" src="images/9.jpg">
+                <img class="imageSelect" src="images/6.png">
             </div>
+        <div class="carousel-item">
+            <img class="imageSelect" src="images/7.png">
+        </div>
+        <div class="carousel-item">
+            <img class="imageSelect" src="images/8.png">
+        </div>
+        <div class="carousel-item">
+            <img class="imageSelect" src="images/9.png">
+        </div>
+        <div class="carousel-item">
+            <img class="imageSelect" src="images/10.png">
+        </div>
+        <div class="carousel-item">
+            <img class="imageSelect" src="images/11.png">
+        </div>
+        <div class="carousel-item">
+            <img class="imageSelect" src="images/12.png">
+        </div>
+        <div class="carousel-item">
+            <img class="imageSelect" src="images/13.png">
+        </div>
+        <div class="carousel-item">
+            <img class="imageSelect" src="images/14.png">
+        </div>
+        <div class="carousel-item">
+            <img class="imageSelect" src="images/15.png">
+        </div>
+        <div class="carousel-item">
+            <img class="imageSelect" src="images/16.png">
+        </div>
+        <div class="carousel-item">
+            <img class="imageSelect" src="images/17.png">
+        </div>
+        <div class="carousel-item">
+            <img class="imageSelect" src="images/18.png">
+        </div>
+        <div class="carousel-item">
+            <img class="imageSelect" src="images/20.png">
+        </div>
+        <div class="carousel-item">
+            <img class="imageSelect" src="images/21.png">
+        </div>
+
 
         <div class="carousel-button right" id="next">
             <img class="arrownext" src="assets/whitenext.png" alt="" />
@@ -56,21 +102,35 @@
     <form method="post" action="/addNewBook">
         <div class="text-input">
             <input type="text" placeholder="Title" name="title" value="{{title}}" required>
-            <input type="text" placeholder="Author" name="author" required>
+            <input type="text" placeholder="Author" name="author"  autocomplete="off" required>
         </div>
         <div class="number-input">
-            <input type="number" placeholder="Page Current" name="PagesCurrent" required>
-            <input type="number" placeholder="Pages Total" name="PagesTotal" required>
+            <input type="number" placeholder="Page Current" name="PagesCurrent"  autocomplete="off" required>
+            <input type="number" placeholder="Pages Total" name="PagesTotal"  autocomplete="off" required>
         </div>
 
 
         <select hidden name="url" id="urlSelect"  required>
-            <option  value="images/3.jpg" data-image="images/3.jpg" >Cover 1</option>
-            <option value="images/4.jpg" data-image="images/4.jpg" >Cover 2</option>
-            <option value="images/6.jpg" data-image="images/6.jpg" >Cover 2</option>
-            <option value="images/7.jpg" data-image="images/7.jpg" >Cover 2</option>
-            <option value="images/8.jpg" data-image="images/8.jpg" >Cover 2</option>
-            <option value="images/9.jpg" data-image="images/9.jpg" >Cover 2</option>
+            <option  value="images/1.png" data-image="images/1.png" >Cover 1</option>
+            <option value="images/2.png" data-image="images/2.png" >Cover 2</option>
+            <option value="images/3.png" data-image="images/3.png" >Cover 2</option>
+            <option value="images/4.png" data-image="images/4.png" >Cover 2</option>
+            <option value="images/5.png" data-image="images/5.png" >Cover 2</option>
+            <option value="images/6.png" data-image="images/6.png" >Cover 2</option>
+            <option value="images/7.png" data-image="images/7.png" >Cover 2</option>
+            <option value="images/8.png" data-image="images/8.png" >Cover 2</option>
+            <option value="images/9.png" data-image="images/9.png" >Cover 2</option>
+            <option value="images/10.png" data-image="images/10.png" >Cover 2</option>
+            <option value="images/11.png" data-image="images/11.png" >Cover 2</option>
+            <option value="images/12.png" data-image="images/12.png" >Cover 2</option>
+            <option value="images/13.png" data-image="images/13.png" >Cover 2</option>
+            <option value="images/14.png" data-image="images/14.png" >Cover 2</option>
+            <option value="images/15.png" data-image="images/15.png" >Cover 2</option>
+            <option value="images/16.png" data-image="images/16.png" >Cover 2</option>
+            <option value="images/17.png" data-image="images/17.png" >Cover 2</option>
+            <option value="images/18.png" data-image="images/18.png" >Cover 2</option>
+            <option value="images/20.png" data-image="images/20.png" >Cover 2</option>
+            <option value="images/21.png" data-image="images/21.png" >Cover 2</option>
 
         </select>
         <button class="add-new-book" type="submit">Create</button>

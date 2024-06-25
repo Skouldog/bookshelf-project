@@ -4,6 +4,11 @@ body {
     margin: 0;
     overflow-x: hidden;
     height:90%;
+    background-image: url("/images/quoteBack.png");
+    background-repeat: no-repeat ;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .header {
@@ -22,7 +27,9 @@ body {
 }
 .title {
     font-family: Playfair Display SC;
-    color: #102c57;
+    color: #271e17;
+    /*color: #3e3232;
+    color: #102c57;*/
     font-size: 5rem;
     font-weight: bold;
     padding-bottom: 1rem;
@@ -50,13 +57,14 @@ body {
     border: none;
     background-color: #dac0a3;
     height: 2rem;
-    font-size: 1rem;
+    font-size: 1.25rem;
     font-weight: bold;
     box-shadow: 0.5rem 0.5rem #7a5b38;
     cursor: pointer;
     color: #102c57;
     text-align: center;
-
+    font-family: Nunito;
+    font-weight: bold;
 }
 
 .quote-input {
@@ -110,6 +118,9 @@ input:focus {
     margin-left: 1rem;
     box-shadow: 0.25rem 0.25rem #7a5b38;
     cursor: pointer;
+    font-family: Nunito;
+    font-weight: bold;
+    font-size: 1.25rem;
 }
 
 .add-button:hover {
@@ -138,7 +149,9 @@ input:focus {
 
     background-color: #d8ae7e;
 
-    font-size: 1rem;
+    font-family: Nunito;
+    font-weight: bold;
+    font-size: 1.25rem;
 
     cursor: pointer;
     box-shadow: 0.25rem 0.25rem #7a5b38;
@@ -168,14 +181,18 @@ input:focus {
     border: 1px solid rgba(255, 255, 255, 0.18);*/
 
     font-size: 4rem;
-    font-family: Playfair Display;
-    color: #7b4b18;
-    font-style: oblique;
-    font-weight: 900;
+    font-family: "Playfair Display";
+    font-weight: bold;
+    font-style: italic;
+    color: white;
+   /* filter: drop-shadow(0.2rem 0.2rem #7a5b38);*/
+    filter: drop-shadow(0.2rem 0.1rem #3e3232);
 }
 
 .info {
     display: grid;
+    font-family: Nunito;
+
 }
 
 .info p {

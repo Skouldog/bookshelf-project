@@ -1,3 +1,95 @@
+body {
+    background-color: #f4e8d7;
+    padding: 5% 10%;
+    margin: 0;
+    overflow-x: hidden;
+    height:90%;
+    background-image: url("/images/chosenBack.png");
+    background-repeat: no-repeat ;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
+}
+
+.header {
+    /*position: relative;*/
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+}
+
+.title {
+    font-family: "Playfair Display SC";
+    color: #271e17;
+
+    font-size: 5rem;
+    font-weight: bold;
+    padding-bottom: 1rem;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+
+.grid-container {
+    display: grid;
+    grid-auto-columns: 1fr;
+    gap: 1rem;
+    grid-template-areas:
+          "box1  box2  box3"
+          "box4  box5  box8 "
+          "box9  box10 box11"
+          "box12 box13 box14";
+}
+.grid-item {
+    background-color: #d8ae7e;
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 200ms ease;
+    box-shadow: 0.5rem 0.5rem #7a5b38;
+    color: #45321b;
+}
+
+.book-author {
+    font-family: "Playfair Display";
+    font-weight: bold;
+    grid-area: box3;
+    font-size: 3rem;
+}
+.book-quotes {
+    grid-row-start: box8;
+    grid-row-end: box14;
+    grid-column-start: box8;
+    grid-column-end: box14;
+    font-size: 2rem;
+}
+.book-pages {
+    grid-area: box12;
+    font-size: 2rem;
+    font-weight: bold;
+}
+.book-cover {
+    padding: 0;
+    grid-row-start: box1;
+    grid-row-end:box9;
+   grid-column-start:  box1;
+    grid-column-end: box2;
+}
+.book-cover img {
+    max-height: 420px;
+    object-fit: cover;
+}
+.book-progress {
+    grid-area: box13;
+    font-size: 3rem;
+}
+
 .menu-bar {
     display: flex;
     flex-direction: row;
