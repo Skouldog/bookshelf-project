@@ -3,33 +3,150 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="styles/chosenBook.css">
 {{#BOOK}}
     <title>{{title}}</title>
 {{/BOOK}}
+    <style>
+        body {
+            background-color: #f4e8d7;
+            padding: 5% 10%;
+            margin: 0;
+            overflow-x: hidden;
+            height:90%;
+        }
+
+        .header {
+            /*position: relative;*/
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+        }
+
+        .title {
+            font-family: Playfair Display SC;
+            color: #102c57;
+            font-size: 5rem;
+            font-weight: bold;
+            padding-bottom: 1rem;
+        }
+
+        .menu-bar {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+            margin-top: 5rem;
+        }
+
+        .menu-bar button {
+            padding: 10px;
+            margin: 10px;
+
+            border-style: none;
+            border-radius: 20px;
+            width: 160px;
+            height: 45px;
+
+            color: antiquewhite;
+
+            background-color: #d8ae7e;
+
+            font-size: 1rem;
+
+            cursor: pointer;
+            box-shadow: 0.25rem 0.25rem #7a5b38;
+        }
+
+        .menu-bar button:hover {
+            background-color: #cee6f3;
+            box-shadow: 0.3rem 0.3rem #38637a;
+            color: #102c57;
+        }
+
+        .menu-bar button:checked {
+            background-color: #cee6f3;
+            box-shadow: 0.3rem 0.3rem #38637a;
+            color: #102c57;
+        }
+
+        .container{
+            display: grid;
+            grid-template-columns: repeat(auto-fit,minmax(240px,1fr));
+            grid-template-rows: repeat(4,minmax(150px,1fr));
+
+            background-color: brown;
+        }
+
+        .book-cover{
+            grid-area: 1/1/4/4;
+            background-color: cyan;
+        }
+        .cover{
+            height: 100%;
+            background-color: #7a5b38;
+        }
+        .cover>img{
+            object-fit: cover;
+        }
+        .quotes-container{
+            grid-area: 2/3/5/5;
+            background-color: green;
+        }
+
+        .book-author{
+            grid-area: 1/3/1/5;
+            background-color: yellow;
+            font-size: 4rem;
+        }
+
+        .page-container{
+            grid-area: 4/1/5/2;
+            background-color: coral;
+        }
+
+    </style>
 </head>
 <body>
 
-
-
-<div>
-
-    {{#BOOK}}
-    <div class="totalBookView">
-
-        <div class="image">
-            <img class="book-cover" src="../{{booKUrl}}" alt="" />
-        </div>
-        <h3 id="book.title" > {{title}}</h3>
-        <p> {{author}}</p>
-
-
-            <p class="pageCount"> {{pageCurrent}} / {{pagesTotal}}</p>
-    </div>
-    {{/BOOK}}
-
+<div class="header">
+    <div class="title"> {{BOOK.title}}</div>
 </div>
 
-<nav>
+
+    <div class="container">
+            <div class="book-cover" >
+               <div class="cover">
+                   <img src="{{BOOK.booKUrl}}">
+               </div>
+            </div>
+
+        <div class="book-author">
+            {{BOOK.author}}
+        </div>
+
+        <div class="quotes-container">
+            {{#QUOTES}}
+                    {{quote}}
+                {{/QUOTES}}
+        </div>
+
+            <div class="page-container">
+                {{BOOK.pageCurrent}}/{{BOOK.pagesTotal}}
+            </div>
+
+
+
+
+
+
+
+    </div>
+
+<img src="{{BOOK.booKUrl}}">
+
+
+
+<nav class="menu-bar">
     <form method="get" action="/dashboard">
         <button class="go-dash-button" type="submit">Bookshelf</button>
     </form>
