@@ -31,16 +31,17 @@
                     autocomplete="off"
             />
             <div id="autocomplete-list" class="autocomplete-suggestions" ></div>
+            {{#errorMessage}}
+                <div class="error">
+                    {{errorMessage}}
+                </div>
+            {{/errorMessage}}
             <input class="add-button" type="submit" value="Add" />
         </form>
     </div>
 
     <!--Falls ungültiges Buch wird Fehlernachricht gesendet -->
-    {{#errorMessage}}
-        <div class="error">
-            {{errorMessage}}
-        </div>
-    {{/errorMessage}}
+
 </div>
 
 <div class="main">

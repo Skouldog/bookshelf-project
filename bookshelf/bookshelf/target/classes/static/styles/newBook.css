@@ -3,14 +3,20 @@ body {
     padding: 5% 10%;
     overflow-x: hidden;
     margin: 0;
+    background-image: url("/assets/dashMute.png");
+    background-repeat: no-repeat ;
+    background-position: center;
+    background-attachment: fixed;
+    background-size: cover;
 }
 
 .header{
     font-family:"Playfair Display SC";
     font-size: 5rem;
     font-weight: bold;
-
+    color: #271e17;
 }
+
 
 input[type="number"]::-webkit-inner-spin-button,
 input[type="number"]::-webkit-outer-spin-button {
@@ -19,31 +25,22 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .newBook-form{
-    margin: 2rem;
+    margin-top: 2rem;
+
+    background-color: aquamarine;
+    align-content: center;
+}
+
+.newBook-form form{
     display: flex;
     flex: 1;
-    background-color: aquamarine;
-    flex-direction: column;
     align-items: center;
+    align-self: center;
+    flex-direction: row;
+    justify-content: space-between;
+    position: relative;
 }
-
-.text-input{
-    flex: 1;
-    background-color: green;
-
-}
-
-.text-input input{
-flex: 1;
-
-    color: wheat;
-}
-.number-input{
-
-}
-
 input {
-    flex: 1;
     padding: 0.25rem;
     border: none;
     background-color: #dac0a3;
@@ -54,6 +51,7 @@ input {
     cursor: pointer;
     color: #102c57;
     text-align: center;
+    border-radius: 20px;
 }
 
 input:focus{
@@ -121,6 +119,13 @@ button {
     object-fit: cover;
     border-radius: 20px;
     box-shadow: 1rem 1rem #7a5b38;
+    transition: 200ms ease;
+}
+
+
+
+.imageSelect:active{
+   box-shadow:  1rem 1rem #38637a;
 }
 
 

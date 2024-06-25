@@ -6,7 +6,7 @@ body {
     overflow-x: auto;
     overflow-y: hidden;
     height:90%;
-    background-image: url("/images/dashBack.png");
+    background-image: url("/assets/dashColor.png");
     background-repeat: no-repeat ;
     background-position: center;
     background-attachment: fixed;
@@ -330,4 +330,21 @@ input:focus {
 
 .autocomplete-suggestion:last-child {
     border-bottom: none;
+}
+
+.error{
+    position: absolute;
+    top: 3rem;
+    right: 4rem;
+
+    overflow-y: auto;
+    z-index: 1000;
+
+    background-color: #7a5b38;
+    color: white;
+    border-radius: 5px;
+
+    padding: 4px 6px;
+
+    font-family: "Playfair Display";
 }

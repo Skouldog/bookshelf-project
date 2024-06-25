@@ -37,14 +37,14 @@
                     placeholder="add new Quote"
                     autocomplete="off"
             />
-
+            {{#errorMessage}}
+                <div class="error">
+                    {{errorMessage}}
+                </div>
+            {{/errorMessage}}
             <input class="add-button" type="submit" value="+" />
         </form>
-        {{#errorMessage}}
-            <div class="error">
-                {{errorMessage}}
-            </div>
-        {{/errorMessage}}
+
     </div>
 </div>
 
