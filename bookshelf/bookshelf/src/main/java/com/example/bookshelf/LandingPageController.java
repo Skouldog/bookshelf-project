@@ -70,8 +70,11 @@ public class LandingPageController {
     @GetMapping("/chosenBook/{title}")
     public String get (@PathVariable String title, Model model) {
         AllBooks searchedBook = allBookRepository.findByTitle(title);
+        List<Quotes> quotesFromBook = quoteRepository.findAllQuotesByBookId(searchedBook.getId());
 
         model.addAttribute("BOOK", searchedBook);
+        model.addAttribute("QUOTES", quotesFromBook);
+
 
         return "chosenBook";
     }

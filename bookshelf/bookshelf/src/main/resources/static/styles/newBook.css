@@ -20,16 +20,23 @@ input[type="number"]::-webkit-outer-spin-button {
 
 .newBook-form{
     margin: 2rem;
-}
-
-.newBook-form input{
     display: flex;
+    flex: 1;
+    background-color: aquamarine;
+    flex-direction: column;
+    align-items: center;
 }
 
+.text-input{
+    flex: 1;
+    background-color: green;
+
+}
 
 .text-input input{
+flex: 1;
 
-
+    color: wheat;
 }
 .number-input{
 
