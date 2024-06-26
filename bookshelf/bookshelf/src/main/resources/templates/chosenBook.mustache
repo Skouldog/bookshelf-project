@@ -27,9 +27,9 @@
 <div class="main">
     <div class="grid-container">
         <div class="book-author grid-item"> {{BOOK.author}}</div>
-        <div class="book-quotes grid-item">
+        <div class="book-quotes snaps-inline ">
             {{#QUOTES}}
-                {{quote}}
+          <div class="quote-element">"{{quote}}" </div>
             {{/QUOTES}}
         </div>
         <div class="book-pages grid-item"> {{BOOK.pageCurrent}}/{{BOOK.pagesTotal}}</div>
@@ -48,7 +48,7 @@
         <button class="go-quotes-button" type="submit">Quotes</button>
     </form>
     <form method="get" action="/impressum">
-        <button class="go-impressum-button" type="submit">Impressum</button>
+        <button class="go-impressum-button" type="submit">About Us</button>
     </form>
 </nav>
 
