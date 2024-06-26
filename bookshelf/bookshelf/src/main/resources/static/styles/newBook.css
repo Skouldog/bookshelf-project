@@ -1,13 +1,20 @@
 body {
     background-color: #f4e8d7;
     padding: 5% 10%;
-    overflow-x: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
     margin: 0;
     background-image: url("/assets/dashMute.png");
     background-repeat: no-repeat ;
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
+}
+@media(max-height: 800px){
+    body{
+        overflow-y: auto;
+    }
+
 }
 
 .header{

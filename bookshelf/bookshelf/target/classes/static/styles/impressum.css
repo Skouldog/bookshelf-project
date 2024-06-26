@@ -1,7 +1,8 @@
 body {
     background-color: #f4e8d7;
     padding: 5% 10%;
-    overflow-x: hidden;
+    overflow-x: auto;
+    overflow-y: hidden;
     margin: 0;
     background-image: url("/assets/aboutUs.png");
     background-repeat: no-repeat ;
@@ -10,11 +11,46 @@ body {
     background-size: cover;
 }
 
+@media(max-height: 850px){
+    body{
+        overflow-y: auto;
+    }
+
+}
+
 .header{
     font-family:"Playfair Display SC";
     font-size: 5rem;
     font-weight: bold;
     color: #271e17;
+}
+.about-us{
+    margin-top: 6%;
+}
+.person {
+    background-color: #d8ae7e;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 20px;
+    transition: all 200ms ease;
+    box-shadow: 0.5rem 0.5rem #7a5b38;
+    color: #45321b;
+    font-family: Nunito;
+    font-weight: bold;
+    font-size: 1.5rem;
+}
+
+.name{
+    font-size: 3rem;
+    font-family: "Playfair Display SC";
+}
+
+.team-container{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 1rem;
+    justify-content: space-between;
+    align-content: space-between;
 }
 
 .menu-bar {
@@ -22,7 +58,7 @@ body {
     flex-direction: row;
     justify-content: center;
 
-    margin-top: 5rem;
+    margin-top: 15rem;
 }
 
 .menu-bar button {

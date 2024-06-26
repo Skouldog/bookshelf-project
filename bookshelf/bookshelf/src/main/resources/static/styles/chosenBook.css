@@ -2,7 +2,8 @@ body {
     background-color: #f4e8d7;
     padding: 5% 10%;
     margin: 0;
-    overflow-x: hidden;
+    overflow-x: auto;
+    overflow-y:hidden ;
     height:90%;
     background-image: url("/assets/chosenMute.png");
     background-repeat: no-repeat ;
@@ -10,6 +11,14 @@ body {
     background-attachment: fixed;
     background-size: cover;
 }
+
+@media(max-height: 850px){
+    body{
+        overflow-y: auto;
+    }
+
+}
+
 
 .header {
     /*position: relative;*/
