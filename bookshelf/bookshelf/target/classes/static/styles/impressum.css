@@ -38,7 +38,9 @@ body {
 
     background-color: #d8ae7e;
 
-    font-size: 1rem;
+    font-family: Nunito;
+    font-weight: bold;
+    font-size: 1.25rem;
 
     cursor: pointer;
     box-shadow: 0.25rem 0.25rem #7a5b38;

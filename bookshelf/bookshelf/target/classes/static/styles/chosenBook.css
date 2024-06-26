@@ -68,8 +68,35 @@ body {
     grid-row-end: box14;
     grid-column-start: box8;
     grid-column-end: box14;
+
+    background-color: #d8ae7e;
+    padding: 1rem;
+    text-align: center;
+    border-radius: 20px;
+    transition: all 200ms ease;
+    box-shadow: 0.5rem 0.5rem #7a5b38;
+    color: #45321b;
+
+    max-height: 400px;
+    font-family: "Playfair Display";
     font-size: 2rem;
+    display: grid;
+    grid-auto-flow:row ;
+    overflow-y: auto;
+    overscroll-behavior-y: contain;
+
 }
+
+.book-quotes::-webkit-scrollbar {
+    display: none;
+}
+.snaps-inline {
+    scroll-snap-type: inline mandatory;
+}
+.snaps-inline > * {
+    scroll-snap-align: start;
+}
+
 .book-pages {
     text-align: center;
     grid-area: box12;
@@ -84,7 +111,9 @@ body {
     grid-column-end: box2;
 }
 .book-cover img {
-    max-height: 420px;
+    display: flex;
+    flex: 1;
+    max-height: 450px;
     object-fit: cover;
 }
 .book-progress {
@@ -98,6 +127,10 @@ body {
     justify-content: center;
 
     margin-top: 5rem;
+
+    font-family: Nunito;
+    font-weight: bold;
+    font-size: 1.25rem;
 }
 
 .menu-bar button {
@@ -113,7 +146,9 @@ body {
 
     background-color: #d8ae7e;
 
-    font-size: 1rem;
+    font-family: Nunito;
+    font-weight: bold;
+    font-size: 1.25rem;
 
     cursor: pointer;
     box-shadow: 0.25rem 0.25rem #7a5b38;

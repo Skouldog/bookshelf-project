@@ -32,7 +32,8 @@ CREATE TABLE IF NOT EXISTS QUOTES(
 
 );
 
-INSERT INTO QUOTES (QUOTE,ALLBOOKS_ID) VALUES (
-                                               'I swear to do only mischief', 1
-                                              )
+INSERT INTO QUOTES (QUOTE,ALLBOOKS_ID) VALUES
+                                           ('I swear to do only mischief', 1),
+                                            ('Happiness can be found even in the darkest of times if only one remembers to turn on the light',1),
+                                            ('Even the smallest person can change the course of the future',2);
 
