@@ -2,7 +2,7 @@ body {
     background-color: #f4e8d7;
     padding: 5% 10%;
     margin: 0;
-    overflow-x: hidden;
+    overflow-x: auto;
     height:90%;
     background-image: url("/assets/quote.png");
     background-repeat: no-repeat ;
@@ -10,6 +10,7 @@ body {
     background-attachment: fixed;
     background-size: cover;
 }
+
 
 .header {
     /*position: relative;*/
@@ -170,7 +171,7 @@ input:focus {
 }
 
 .quote {
-    /*background: linear-gradient(
+   /* background: linear-gradient(
       135deg,
       rgba(255, 255, 255, 0.1),
       rgba(255, 255, 255, 0)
@@ -180,7 +181,7 @@ input:focus {
     border-radius: 20px;
     border: 1px solid rgba(255, 255, 255, 0.18);*/
 
-    font-size: 4rem;
+    font-size: 3rem;
     font-family: "Playfair Display";
     font-weight: bold;
     font-style: italic;
