@@ -32,7 +32,15 @@
           <div class="quote-element">"{{quote}}" </div>
             {{/QUOTES}}
         </div>
-        <div class="book-pages grid-item"> {{BOOK.pageCurrent}}/{{BOOK.pagesTotal}}</div>
+        <div class="book-pages grid-item"> {{BOOK.pageCurrent}}/{{BOOK.pagesTotal}}
+
+        </div>
+        <div>
+            <form method="post" action="/addNewBook">
+                <input name="newPage" type="number" id="newPage">
+                <button class="update-page" type="submit">update</button>
+            </form>
+        </div>
         <div class="book-cover grid-item">
             <img src="/{{BOOK.booKUrl}}" alt="">
         </div>

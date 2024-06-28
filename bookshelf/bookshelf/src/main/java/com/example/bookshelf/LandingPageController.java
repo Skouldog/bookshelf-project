@@ -72,6 +72,8 @@ public class LandingPageController {
         AllBooks searchedBook = allBookRepository.findByTitle(title);
         List<Quotes> quotesFromBook = quoteRepository.findAllQuotesByBookId(searchedBook.getId());
 
+
+
         model.addAttribute("BOOK", searchedBook);
         model.addAttribute("QUOTES", quotesFromBook);
 
@@ -79,7 +81,23 @@ public class LandingPageController {
         return "chosenBook";
     }
 
+//Funktioniert nicht (buchseite updaten)
+    /*
+    @PostMapping("/chosenBook")
+    public String post (@RequestParam("title") String title, Model model, @RequestParam("newPage")int newPage) {
 
+        AllBooks searchedBook = allBookRepository.findByTitle(title); //find book
+        searchedBook.setPageCurrent(newPage); //set new page
+
+        List<Quotes> quotesFromBook = quoteRepository.findAllQuotesByBookId(searchedBook.getId());
+        model.addAttribute("BOOK", searchedBook);
+        model.addAttribute("QUOTES", quotesFromBook);
+
+
+        return "chosenBook";
+    }
+
+*/
 
 
 

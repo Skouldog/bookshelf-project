@@ -185,9 +185,9 @@ input:focus {
     font-family: "Playfair Display";
     font-weight: bold;
     font-style: italic;
-    color: white;
+    color: #f6be7b;
    /* filter: drop-shadow(0.2rem 0.2rem #7a5b38);*/
-    filter: drop-shadow(0.2rem 0.1rem #3e3232);
+    filter: drop-shadow(0.2rem 0.1rem #402a0b);
 }
 
 .info {
