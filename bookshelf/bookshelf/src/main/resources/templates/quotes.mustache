@@ -16,7 +16,7 @@
 
 <body>
 <div class="header">
-    <div class="title">MyQuotes</div>
+    <div class="title">My Quotes</div>
 
     <div class="quote-form">
         <form action="/addquotes" method="post">
@@ -28,8 +28,8 @@
                     placeholder="book title"
                     autocomplete="off"
             />
-            <div id="autocomplete-list" class="autocomplete-suggestions"></div>
-            <input
+                <div id="autocomplete-list" class="autocomplete-suggestions"></div>
+           <input
                     class="quote-input"
                     type="text"
                     name="quote"
@@ -37,6 +37,7 @@
                     placeholder="add new Quote"
                     autocomplete="off"
             />
+
             {{#errorMessage}}
                 <div class="error">
                     {{errorMessage}}

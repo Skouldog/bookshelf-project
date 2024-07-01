@@ -2,7 +2,7 @@ body {
     background-color: #f4e8d7;
     padding: 5% 10%;
     overflow-x: auto;
-    overflow-y: hidden;
+    overflow-y: auto;
     margin: 0;
     background-image: url("/assets/aboutUs.png");
     background-repeat: no-repeat ;
@@ -11,11 +11,73 @@ body {
     background-size: cover;
 }
 
-@media(max-height: 850px){
+@media (max-width: 600px){
+    html{
+        justify-self: center;
+        overflow-x: hidden;
+        overflow-y: auto;
+    }
     body{
+        overflow-x: hidden;
         overflow-y: auto;
     }
 
+
+    .header{
+        display: flex;
+        flex-direction: row;
+
+    }
+
+
+    .header .title{
+        font-size: 3rem;
+    }
+
+    .menu-bar{
+        position: fixed;
+        bottom: 2rem;
+    }
+
+    .menu-bar .go-dash-button, .menu-bar .go-impressum-button, .menu-bar .go-quotes-button{
+        padding: 10px;
+        margin: 0px;
+
+        border-radius: 0px;
+        width: 110px;
+        height: 45px;
+
+
+        font-size: 1rem;
+
+    }
+
+    .menu-bar .go-dash-button{
+        border-radius: 20px 0 0 20px;
+    }
+
+    .menu-bar .go-impressum-button{
+        border-radius: 0px 20px 20px 0px;
+    }
+
+   .about-us .team-container{
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1rem;
+        justify-content: space-between;
+        align-content: space-between;
+    }
+   .team-container .person {
+       background-color: #f4c796;
+        font-size: 1rem;
+    }
+.person .name{
+    font-size: 2rem;
+    margin-bottom: 1rem;
+}
+.person p{
+    margin: 0.5rem;
+}
 }
 
 .header{
