@@ -35,13 +35,13 @@
         <div class="book-pages grid-item"> {{BOOK.pageCurrent}}/{{BOOK.pagesTotal}}
 
         </div>
-        <div>
-            <form method="post" action="/updatePage">
-                <input name="newPage" type="number" id="newPage" required min="0">
+
+            <form class="page-update" method="post" action="/updatePage">
+                <input class="page-input" name="newPage" type="number" id="newPage" required min="0">
                 <input hidden name="title" value="{{BOOK.title}}">
                 <button class="update-page" type="submit">update</button>
             </form>
-        </div>
+
         <div class="book-cover grid-item">
             <img src="/{{BOOK.booKUrl}}" alt="">
         </div>

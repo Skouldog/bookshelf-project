@@ -42,6 +42,8 @@ body{
 
     .menu-bar{
         position: fixed;
+        left: 50%;
+        transform: translate(-50%);
         bottom: 2rem;
     }
 
