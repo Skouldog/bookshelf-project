@@ -1,3 +1,69 @@
+@media (max-width: 600px){
+    html{
+        justify-self: center;
+        overflow: hidden;
+    }
+    body{
+        overflow: hidden;
+    }
+
+
+    .header{
+        display: flex;
+        flex-direction: row;
+
+    }
+
+    .header .Title{
+        font-size: 3rem;
+    }
+
+    .menu-bar{
+        position: fixed;
+        left: 50%;
+        transform: translate(-50%);
+        bottom: 2rem;
+    }
+
+    .menu-bar .go-dash-button, .menu-bar .go-impressum-button, .menu-bar .go-quotes-button{
+        padding: 10px;
+        margin: 0px;
+
+        border-radius: 0px;
+        width: 110px;
+        height: 45px;
+
+
+        font-size: 1rem;
+
+    }
+
+    .menu-bar .go-dash-button{
+        border-radius: 20px 0 0 20px;
+    }
+
+    .menu-bar .go-impressum-button{
+        border-radius: 0px 20px 20px 0px;
+    }
+    .carousel-button > img {
+        display: flex;
+        scale: 0.75;
+        filter: drop-shadow(0rem 1rem #7a5b38);
+    }
+
+    .newBook-form{
+        display: grid;
+        grid-template-areas:
+          "box1"
+          "box2"
+          "box3"
+          "box4"
+          "box5"
+          "box6";
+    }
+
+}
+
 body {
     background-color: #f4e8d7;
     padding: 5% 10%;
@@ -9,12 +75,6 @@ body {
     background-position: center;
     background-attachment: fixed;
     background-size: cover;
-}
-@media(max-height: 800px){
-    body{
-        overflow-y: auto;
-    }
-
 }
 
 .header{

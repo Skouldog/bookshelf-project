@@ -11,7 +11,91 @@ body {
     background-attachment: fixed;
     background-size: cover;
 }
+@media (max-width: 1170px){
+   .grid-container .book-cover{
+        max-height: 600px;
+    }
+   .grid-container .book-cover > img{
+        max-height: 600px;
+    }
+}
 
+@media (max-width:600px){
+    html{
+        justify-self: center;
+        overflow-x: hidden;
+    }
+    body{
+        overflow-x: hidden;
+    }
+
+    .header{
+        display: flex;
+        flex-direction: row;
+    }
+    .header .title{
+        font-size: 3rem;
+    }
+
+    .menu-bar{
+        position: fixed;
+        left: 50%;
+        transform: translate(-50%);
+        bottom: 2rem;
+    }
+
+    .menu-bar .go-dash-button, .menu-bar .go-impressum-button, .menu-bar .go-quotes-button{
+        padding: 10px;
+        margin: 0px;
+
+        border-radius: 0px;
+        width: 110px;
+        height: 45px;
+
+
+        font-size: 1rem;
+    }
+
+    .menu-bar .go-dash-button{
+        border-radius: 20px 0 0 20px;
+    }
+
+    .menu-bar .go-impressum-button{
+        border-radius: 0px 20px 20px 0px;
+    }
+   .main .grid-container{
+        display: grid;
+        grid-template-areas:
+          "box1"
+          "box2"
+          "box3"
+          "box4"
+          "box5"
+          "box6";
+    }
+   .grid-container .book-cover{
+        grid-area: box1 ;
+       max-height: 200px;
+    }
+   .grid-container .book-author{
+        grid-area: box2;
+    }
+   .grid-container .book-quotes{
+        grid-area: box3;
+    }
+   .grid-container .book-pages{
+        grid-area: box4;
+    }
+   .grid-container .book-progress{
+        grid-area: box5;
+    }
+   .grid-container .page-update{
+        grid-area: box6;
+       margin-bottom: 5rem;
+    }
+
+
+}
 
 
 .header {
@@ -47,7 +131,7 @@ body {
           "box12 box13 box14";
 }
 .grid-item {
-    background-color: #d8ae7e;
+    background-color: #dac0a3;
     padding: 1rem;
     text-align: center;
     display: flex;
@@ -58,7 +142,10 @@ body {
     box-shadow: 0.5rem 0.5rem #7a5b38;
     color: #45321b;
     font-family: Nunito;
+    max-height: 500px;
 }
+
+
 
 .book-author {
     font-family: "Playfair Display";
@@ -68,11 +155,11 @@ body {
 }
 .book-quotes {
     grid-row-start: box8;
-    grid-row-end: box14;
+    grid-row-end: box11;
     grid-column-start: box8;
-    grid-column-end: box14;
+    grid-column-end: box11;
 
-    background-color: #d8ae7e;
+    background-color: #dac0a3;
     padding: 1rem;
     text-align: center;
     border-radius: 20px;
@@ -116,13 +203,14 @@ body {
 .book-cover img {
     display: flex;
     flex: 1;
-    max-height: 450px;
+    max-height: 500px;
     object-fit: cover;
 }
 .book-progress {
     grid-area: box13;
     font-size: 3rem;
 }
+
 
 .menu-bar {
     display: flex;
@@ -167,4 +255,70 @@ body {
     background-color: #cee6f3;
     box-shadow: 0.3rem 0.3rem #38637a;
     color: #102c57;
+}
+
+
+
+.page-update{
+    grid-area: box14;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    justify-content: center;
+
+}
+
+
+.page-input{
+    background-color: #dac0a3;
+    border: none;
+    padding: 1rem;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    border-radius: 20px;
+    overflow: hidden;
+    transition: all 200ms ease;
+    box-shadow: 0.5rem 0.5rem #7a5b38;
+    color: #45321b;
+    font-family: Nunito;
+    font-size: 2rem;
+}
+
+.update-page{
+    border: none;
+    background-color: #dac0a3;
+    display: flex;
+    border-radius: 20px;
+    transition: all 200ms ease;
+    box-shadow: 0.5rem 0.5rem #7a5b38;
+    font-family: Nunito;
+    font-size: 2rem;
+    font-weight: bold;
+    justify-content: center;
+    align-items: center;
+    color: antiquewhite;
+}
+
+.update-page:hover{
+    background-color: #cee6f3;
+    box-shadow: 0.5rem 0.5rem #38637a;
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input:focus {
+    outline: none;
+}
+
+.page-input:hover{
+    background-color: #cee6f3;
+    box-shadow: 0.5rem 0.5rem #38637a;
+}
+
+input::placeholder {
+    color: #7a5b38;
+    text-align: center;
 }

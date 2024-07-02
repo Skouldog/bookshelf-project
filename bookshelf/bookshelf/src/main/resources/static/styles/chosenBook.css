@@ -91,6 +91,7 @@ body {
     }
    .grid-container .page-update{
         grid-area: box6;
+       margin-bottom: 5rem;
     }
 
 

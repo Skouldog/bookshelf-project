@@ -36,6 +36,8 @@ body {
 
     .menu-bar{
         position: fixed;
+        left: 50%;
+        transform: translate(-50%);
         bottom: 2rem;
     }
 
@@ -68,7 +70,6 @@ body {
         align-content: space-between;
     }
    .team-container .person {
-       background-color: #f4c796;
         font-size: 1rem;
     }
 .person .name{
@@ -90,7 +91,8 @@ body {
     margin-top: 6%;
 }
 .person {
-    background-color: #d8ae7e;
+    max-width: 300px;
+    background-color: #dac0a3;
     padding: 1rem;
     text-align: center;
     border-radius: 20px;
