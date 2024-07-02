@@ -36,8 +36,9 @@
 
         </div>
         <div>
-            <form method="post" action="/addNewBook">
-                <input name="newPage" type="number" id="newPage">
+            <form method="post" action="/updatePage">
+                <input name="newPage" type="number" id="newPage" required min="0">
+                <input hidden name="title" value="{{BOOK.title}}">
                 <button class="update-page" type="submit">update</button>
             </form>
         </div>

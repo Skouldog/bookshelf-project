@@ -76,6 +76,9 @@ static int progress;
     public String getBooKUrl() {return booKUrl;}
     public void setBooKUrl(String booKUrl) {this.booKUrl = booKUrl;}
     //Overrides damit die Equals funktion richtig vergleicht
+    public void setProgress() {
+        progress = (int) Math.ceil( pageCurrent*100 / pagesTotal);
+    }
     @Override
     public boolean equals(Object obj) {
         if (this == obj) {
