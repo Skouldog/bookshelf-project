@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Bookshelf</title>
+    <link rel="stylesheet" href="styles/stylesDashboard.css">
+    <!--Playfair-FONT-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
+    <!--NUNITO-FONT-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Playfair+Display+SC:ital,wght@0,400;0,700;0,900;1,400;1,700;1,900&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="header">
+    <div class="title">My Books</div>
+
+    <!--Live Auto Suggestion -->
+    <div class="search-form">
+
+        <form action="./getMappingResults" method="get">
+            <input
+                    type="text"
+                    name="name"
+                    placeholder="Search"
+                    class="searchbar"
+                    id="searchbar"
+                    autocomplete="off"
+            />
+            <div id="autocomplete-list" class="autocomplete-suggestions" ></div>
+            {{#errorMessage}}
+                <div class="error">
+                    {{errorMessage}}
+                </div>
+            {{/errorMessage}}
+            <input class="add-button" type="submit" value="Add" />
+        </form>
+    </div>
+
+    <!--Falls ungültiges Buch wird Fehlernachricht gesendet -->
+
+</div>
+
+<div class="main">
+    <div class="carousel-button left" id="prev">
+        <img class="arrowprev" src="assets/whiteprev.png" alt="" />
+    </div>
+<div class="container">
+
+    <div class="carousel-content snaps-inline">
+        {{#books}}
+        <div class="book">
+            <a class="link" href="chosenBook/{{title}}">
+                <div class="image">
+                    <img class="book-cover" src="{{booKUrl}}" alt="" />
+                </div>
+                <div class="book-info">
+                    <p class="book-title">{{title}}</p>
+                    <p class="book-author">{{author}}</p>
+                </div>
+            </a>
+
+        </div>
+            {{/books}}
+    </div>
+</div>
+    <div class="carousel-button right" id="next">
+        <img class="arrownext" src="assets/whitenext.png" alt="" />
+    </div>
+</div>
+<!--Navigations Button um Seiten zu navigieren -->
+<nav class="menu-bar">
+    <form method="get" action="./dashboard">
+        <button class="go-dash-button" type="submit">Bookshelf</button>
+    </form>
+    <form method="get" action="./quotes">
+        <button class="go-quotes-button" type="submit">Quotes</button>
+    </form>
+    <form method="get" action="./impressum">
+        <button class="go-impressum-button" type="submit">About Us</button>
+    </form>
+</nav>
+<!--Live Auto Suggestion JavaScript -->
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const searchInput = document.getElementById("searchbar");
+        const autocompleteList = document.getElementById("autocomplete-list");
+
+        searchInput.addEventListener("input", function () {
+            const query = this.value;
+            if (query.length < 1) {
+                autocompleteList.innerHTML = "";
+                return;
+            }
+
+            fetch(`/autocomplete?query=${query}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        autocompleteList.innerHTML = "";
+                        if (data.length === 0) {
+                            const div = document.createElement("div");
+                            div.classList.add("autocomplete-suggestion");
+                            div.textContent = `Add new book: "${query}"`;
+                            div.addEventListener("click", function () {
+                                window.location.href = `/addBook?title=${encodeURIComponent(query)}`;
+                            });
+                            autocompleteList.appendChild(div);
+                        } else {
+                            data.forEach(item => {
+                                const div = document.createElement("div");
+                                div.classList.add("autocomplete-suggestion");
+                                div.textContent = item;
+                                div.addEventListener("click", function () {
+                                    searchInput.value = item;
+                                    autocompleteList.innerHTML = "";
+                                });
+                                autocompleteList.appendChild(div);
+                            });
+                        }
+                    });
+        });
+
+        document.addEventListener("click", function (e) {
+            if (e.target !== searchInput) {
+                autocompleteList.innerHTML = "";
+            }
+        });
+    });
+
+//Carousel Controls
+    let scrollSlide = document.querySelector(".carousel-content");
+    const prevBtn = document.getElementById("prev");
+    const nextBtn = document.getElementById("next");
+
+    nextBtn.addEventListener("click", () => {
+        scrollSlide.style.scrollBehavior = "smooth";
+        scrollSlide.scrollLeft += 300;
+    });
+
+    prevBtn.addEventListener("click", () => {
+        scrollSlide.style.scrollBehavior = "smooth";
+        scrollSlide.scrollLeft -= 300;
+    });
+
+</script>
+</body>
+</html>

@@ -1,0 +1,9 @@
+com\example\bookshelf\H2Configuration.class
+com\example\bookshelf\LandingPageController$2BookWithQuotes.class
+com\example\bookshelf\repos\IQuoteRepository.class
+com\example\bookshelf\LandingPageController$1BookWithQuotes.class
+com\example\bookshelf\BookshelfApplication.class
+com\example\bookshelf\AllBooks.class
+com\example\bookshelf\Quotes.class
+com\example\bookshelf\repos\IAllBookRepository.class
+com\example\bookshelf\LandingPageController.class
